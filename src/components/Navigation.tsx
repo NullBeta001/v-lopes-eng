@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import LanguageSelector from "./LanguageSelector";
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,11 +18,11 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: "#inicio", label: "Início" },
-    { href: "#sobre", label: "Sobre" },
-    { href: "#servicos", label: "Serviços" },
-    { href: "#projetos", label: "Projetos" },
-    { href: "#contato", label: "Contato" },
+    { href: "#inicio", label: t("nav.home") },
+    { href: "#sobre", label: t("nav.about") },
+    { href: "#servicos", label: t("nav.services") },
+    { href: "#projetos", label: t("nav.projects") },
+    { href: "#contato", label: t("nav.contact") },
   ];
 
   const scrollToSection = (href: string) => {
@@ -75,13 +78,14 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Language Selector & CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSelector />
             <Button
               variant="outline"
               onClick={() => scrollToSection("#contato")}
             >
-              Solicitar Orçamento
+              {t("nav.requestQuote")}
             </Button>
           </div>
 
@@ -114,13 +118,16 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button
-              variant="outline"
-              className="mt-2"
-              onClick={() => scrollToSection("#contato")}
-            >
-              Solicitar Orçamento
-            </Button>
+            <div className="flex items-center gap-2 mt-2">
+              <LanguageSelector />
+              <Button
+                variant="outline"
+                className="flex-1"
+                onClick={() => scrollToSection("#contato")}
+              >
+                {t("nav.requestQuote")}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

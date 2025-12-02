@@ -1,8 +1,10 @@
 import { ArrowDown, Play } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -31,7 +33,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8 animate-fade-up">
             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm text-primary font-medium uppercase tracking-wider">
-              Projetos de Engenharia Industrial
+              {t("hero.badge")}
             </span>
           </div>
 
@@ -40,8 +42,8 @@ const Hero = () => {
             className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Transformamos
-            <span className="text-gradient-gold block mt-2">Ideias em Projetos</span>
+            {t("hero.title")}
+            <span className="text-gradient-gold block mt-2">{t("hero.titleHighlight")}</span>
           </h1>
 
           {/* Subtitle */}
@@ -49,8 +51,7 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
-            Especialistas em modelagem 3D e projetos industriais. 
-            Utilizamos as melhores ferramentas do mercado para entregar soluções precisas e inovadoras.
+            {t("hero.subtitle")}
           </p>
 
           {/* CTA Buttons */}
@@ -63,7 +64,7 @@ const Hero = () => {
               size="xl"
               onClick={() => scrollToSection("#projetos")}
             >
-              Ver Projetos
+              {t("hero.viewProjects")}
             </Button>
             <Button
               variant="heroOutline"
@@ -71,7 +72,7 @@ const Hero = () => {
               onClick={() => scrollToSection("#contato")}
             >
               <Play size={18} className="mr-1" />
-              Fale Conosco
+              {t("hero.contactUs")}
             </Button>
           </div>
 
@@ -81,10 +82,10 @@ const Hero = () => {
             style={{ animationDelay: "0.4s" }}
           >
             {[
-              { value: "10+", label: "Anos de Experiência" },
-              { value: "150+", label: "Projetos Entregues" },
-              { value: "50+", label: "Clientes Satisfeitos" },
-              { value: "100%", label: "Comprometimento" },
+              { value: "10+", label: t("hero.stats.years") },
+              { value: "150+", label: t("hero.stats.projects") },
+              { value: "50+", label: t("hero.stats.clients") },
+              { value: "100%", label: t("hero.stats.commitment") },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="font-heading font-bold text-3xl md:text-4xl text-primary mb-2">
@@ -109,7 +110,7 @@ const Hero = () => {
           }}
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <span className="text-xs uppercase tracking-widest">{t("hero.scroll")}</span>
           <ArrowDown size={20} />
         </a>
       </div>

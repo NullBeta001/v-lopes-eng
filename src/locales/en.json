@@ -1,0 +1,248 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "requestQuote": "Request Quote"
+  },
+  "hero": {
+    "badge": "Industrial Engineering Projects",
+    "title": "We Transform",
+    "titleHighlight": "Ideas into Projects",
+    "subtitle": "Specialists in 3D modeling and industrial projects. We use the best tools in the market to deliver precise and innovative solutions.",
+    "viewProjects": "View Projects",
+    "contactUs": "Contact Us",
+    "scroll": "Scroll",
+    "stats": {
+      "years": "Years of Experience",
+      "projects": "Projects Delivered",
+      "clients": "Satisfied Clients",
+      "commitment": "Commitment"
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Engineering with",
+    "titleHighlight": "Excellence",
+    "description1": "V Lopes Engineering specializes in industrial projects and 3D modeling. With years of market experience, we offer high-quality technical solutions for industries across various sectors.",
+    "description2": "Our team of engineers and designers is ready to transform your ideas into viable projects, using the most advanced tools in the market such as SolidWorks, AutoCAD, and SketchUp.",
+    "values": {
+      "precision": {
+        "title": "Precision",
+        "description": "Every detail matters. Our projects are developed with technical rigor and attention to the smallest details."
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "We use the best practices and software in the market to ensure exceptional results."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We work side by side with our clients, understanding their needs and exceeding expectations."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We constantly seek new solutions and technologies to optimize our projects."
+      }
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Complete Solutions in",
+    "titleHighlight": "Engineering",
+    "subtitle": "We offer a complete range of engineering services to meet all your industrial project needs.",
+    "items": {
+      "3dModeling": {
+        "title": "3D Modeling",
+        "description": "Creation of precise three-dimensional models for visualization and manufacturing of industrial parts and equipment.",
+        "features": [
+          "Realistic Rendering",
+          "3D Animations",
+          "Virtual Prototyping"
+        ]
+      },
+      "technicalProjects": {
+        "title": "Technical Projects",
+        "description": "Development of complete technical projects with detailing and specifications for execution.",
+        "features": [
+          "Technical Drawings",
+          "Bill of Materials",
+          "Descriptive Report"
+        ]
+      },
+      "industrialProjects": {
+        "title": "Industrial Projects",
+        "description": "Complete solutions for industrial facilities, factory layouts and process optimization.",
+        "features": [
+          "Industrial Layout",
+          "Process Flow",
+          "Ergonomics"
+        ]
+      },
+      "mechanicalEngineering": {
+        "title": "Mechanical Engineering",
+        "description": "Projects for machines, equipment and mechanical systems for various industry sectors.",
+        "features": [
+          "Sizing",
+          "Structural Analysis",
+          "Material Selection"
+        ]
+      },
+      "nr35Inspection": {
+        "title": "NR-35 Inspection",
+        "description": "Complete technical inspection for work at height in accordance with regulatory standard NR-35.",
+        "features": [
+          "Risk Analysis",
+          "Technical Report",
+          "Legal Compliance"
+        ]
+      },
+      "nr12Inspection": {
+        "title": "NR-12 Inspection",
+        "description": "Safety inspection of machines and equipment in accordance with regulatory standard NR-12.",
+        "features": [
+          "Risk Assessment",
+          "Machine Inventory",
+          "Action Plan"
+        ]
+      },
+      "nr35Compliance": {
+        "title": "NR-35 Compliance",
+        "description": "Adaptation of structures and systems for compliance with work at height standards.",
+        "features": [
+          "Compliance Project",
+          "Monitoring",
+          "Final Validation"
+        ]
+      },
+      "technicalDocumentation": {
+        "title": "Technical Documentation",
+        "description": "Preparation of all technical documentation necessary for regularization and compliance.",
+        "features": [
+          "Technical Reports",
+          "ART",
+          "Certificates"
+        ]
+      },
+      "detailing": {
+        "title": "Detailing",
+        "description": "Complete detailing of parts and assemblies for industrial manufacturing and assembly.",
+        "features": [
+          "Dimensions and Tolerances",
+          "Finishes",
+          "Assembly Instructions"
+        ]
+      },
+      "consulting": {
+        "title": "Consulting",
+        "description": "Specialized technical advisory for optimization of projects and industrial processes.",
+        "features": [
+          "Feasibility Analysis",
+          "Optimization",
+          "Training"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Our",
+    "titleHighlight": "Projects",
+    "subtitle": "Discover some of the projects we have developed for our clients.",
+    "filters": {
+      "all": "All",
+      "industrial": "Industrial",
+      "3dModeling": "3D Modeling",
+      "mechanical": "Mechanical",
+      "structural": "Structural"
+    },
+    "viewAll": "View All Projects",
+    "items": {
+      "conveyorSystem": {
+        "title": "Conveyor Belt System",
+        "description": "Complete transport system project for automotive production line."
+      },
+      "equipmentModeling": {
+        "title": "Industrial Equipment Modeling",
+        "description": "Detailed 3D modeling of equipment for the food industry."
+      },
+      "metalStructure": {
+        "title": "Metal Structure Warehouse",
+        "description": "Structural project for industrial warehouse with 2,000m² of covered area."
+      },
+      "fillingMachine": {
+        "title": "Automated Filling Machine",
+        "description": "Development of machine for automatic liquid filling."
+      },
+      "pharmaceuticalLayout": {
+        "title": "Pharmaceutical Industrial Layout",
+        "description": "Optimized layout project for pharmaceutical industry."
+      },
+      "aerospacePrototype": {
+        "title": "Aerospace Component Prototype",
+        "description": "Modeling and rendering of component for aerospace industry."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's Talk About",
+    "titleHighlight": "Your Project",
+    "subtitle": "Contact us to discuss your engineering needs. Our team is ready to help transform your ideas into reality.",
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location"
+    },
+    "whatsapp": "Talk on WhatsApp",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(00) 00000-0000",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select...",
+      "subjectOptions": {
+        "quote": "Request Quote",
+        "project": "New Project",
+        "consulting": "Consulting",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Describe your project or need...",
+      "send": "Send Message",
+      "required": "*"
+    },
+    "toast": {
+      "error": "Error",
+      "errorDescription": "Please fill in all required fields.",
+      "success": "Message sent!",
+      "successDescription": "You will be redirected to WhatsApp.",
+      "whatsappMessage": "New Contact - V Lopes Engineering",
+      "notProvided": "Not provided"
+    }
+  },
+  "footer": {
+    "description": "Transforming ideas into engineering projects with excellence and innovation.",
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "links": {
+      "about": "About Us",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact",
+      "3dModeling": "3D Modeling",
+      "technicalProjects": "Technical Projects",
+      "mechanicalEngineering": "Mechanical Engineering",
+      "consulting": "Consulting"
+    },
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "rights": "All rights reserved."
+  }
+}

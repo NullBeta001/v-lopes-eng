@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "services": "Serviços",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "requestQuote": "Solicitar Orçamento"
+  },
+  "hero": {
+    "badge": "Projetos de Engenharia Industrial",
+    "title": "Transformamos",
+    "titleHighlight": "Ideias em Projetos",
+    "subtitle": "Especialistas em modelagem 3D e projetos industriais. Utilizamos as melhores ferramentas do mercado para entregar soluções precisas e inovadoras.",
+    "viewProjects": "Ver Projetos",
+    "contactUs": "Fale Conosco",
+    "scroll": "Scroll",
+    "stats": {
+      "years": "Anos de Experiência",
+      "projects": "Projetos Entregues",
+      "clients": "Clientes Satisfeitos",
+      "commitment": "Comprometimento"
+    }
+  },
+  "about": {
+    "badge": "Sobre Nós",
+    "title": "Engenharia com",
+    "titleHighlight": "Excelência",
+    "description1": "A V Lopes Engenharia é especializada em projetos industriais e modelagem 3D. Com anos de experiência no mercado, oferecemos soluções técnicas de alta qualidade para indústrias de diversos segmentos.",
+    "description2": "Nossa equipe de engenheiros e projetistas está preparada para transformar suas ideias em projetos viáveis, utilizando as ferramentas mais avançadas do mercado como SolidWorks, AutoCAD e SketchUp.",
+    "values": {
+      "precision": {
+        "title": "Precisão",
+        "description": "Cada detalhe é importante. Nossos projetos são desenvolvidos com rigor técnico e atenção aos mínimos detalhes."
+      },
+      "quality": {
+        "title": "Qualidade",
+        "description": "Utilizamos as melhores práticas e softwares do mercado para garantir resultados excepcionais."
+      },
+      "partnership": {
+        "title": "Parceria",
+        "description": "Trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e superando expectativas."
+      },
+      "innovation": {
+        "title": "Inovação",
+        "description": "Buscamos constantemente novas soluções e tecnologias para otimizar nossos projetos."
+      }
+    }
+  },
+  "services": {
+    "badge": "Nossos Serviços",
+    "title": "Soluções Completas em",
+    "titleHighlight": "Engenharia",
+    "subtitle": "Oferecemos uma gama completa de serviços de engenharia para atender todas as necessidades do seu projeto industrial.",
+    "items": {
+      "3dModeling": {
+        "title": "Modelagem 3D",
+        "description": "Criação de modelos tridimensionais precisos para visualização e fabricação de peças e equipamentos industriais.",
+        "features": ["Renderização Realista", "Animações 3D", "Prototipagem Virtual"]
+      },
+      "technicalProjects": {
+        "title": "Projetos Técnicos",
+        "description": "Desenvolvimento de projetos técnicos completos com detalhamento e especificações para execução.",
+        "features": ["Desenhos Técnicos", "Lista de Materiais", "Memorial Descritivo"]
+      },
+      "industrialProjects": {
+        "title": "Projetos Industriais",
+        "description": "Soluções completas para instalações industriais, layout de fábricas e otimização de processos.",
+        "features": ["Layout Industrial", "Fluxo de Processos", "Ergonomia"]
+      },
+      "mechanicalEngineering": {
+        "title": "Engenharia Mecânica",
+        "description": "Projetos de máquinas, equipamentos e sistemas mecânicos para diversos setores da indústria.",
+        "features": ["Dimensionamento", "Análise Estrutural", "Seleção de Materiais"]
+      },
+      "nr35Inspection": {
+        "title": "Inspeção NR-35",
+        "description": "Inspeção técnica completa para trabalhos em altura conforme norma regulamentadora NR-35.",
+        "features": ["Análise de Riscos", "Relatório Técnico", "Conformidade Legal"]
+      },
+      "nr12Inspection": {
+        "title": "Inspeção NR-12",
+        "description": "Inspeção de segurança em máquinas e equipamentos conforme norma regulamentadora NR-12.",
+        "features": ["Avaliação de Riscos", "Inventário de Máquinas", "Plano de Ação"]
+      },
+      "nr35Compliance": {
+        "title": "Adequação NR-35",
+        "description": "Adequação de estruturas e sistemas para conformidade com a norma de trabalho em altura.",
+        "features": ["Projeto de Adequação", "Acompanhamento", "Validação Final"]
+      },
+      "technicalDocumentation": {
+        "title": "Documentação Técnica",
+        "description": "Elaboração de toda documentação técnica necessária para regularização e conformidade.",
+        "features": ["Laudos Técnicos", "ART", "Certificados"]
+      },
+      "detailing": {
+        "title": "Detalhamento",
+        "description": "Detalhamento completo de peças e conjuntos para fabricação e montagem industrial.",
+        "features": ["Cotas e Tolerâncias", "Acabamentos", "Instruções de Montagem"]
+      },
+      "consulting": {
+        "title": "Consultoria",
+        "description": "Assessoria técnica especializada para otimização de projetos e processos industriais.",
+        "features": ["Análise de Viabilidade", "Otimização", "Treinamentos"]
+      }
+    }
+  },
+  "projects": {
+    "badge": "Portfólio",
+    "title": "Nossos",
+    "titleHighlight": "Projetos",
+    "subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes.",
+    "filters": {
+      "all": "Todos",
+      "industrial": "Industrial",
+      "3dModeling": "Modelagem 3D",
+      "mechanical": "Mecânico",
+      "structural": "Estrutural"
+    },
+    "viewAll": "Ver Todos os Projetos",
+    "items": {
+      "conveyorSystem": {
+        "title": "Sistema de Esteiras Transportadoras",
+        "description": "Projeto completo de sistema de transporte para linha de produção automotiva."
+      },
+      "equipmentModeling": {
+        "title": "Modelagem de Equipamento Industrial",
+        "description": "Modelagem 3D detalhada de equipamento para indústria alimentícia."
+      },
+      "metalStructure": {
+        "title": "Estrutura Metálica Galpão",
+        "description": "Projeto estrutural de galpão industrial com 2.000m² de área coberta."
+      },
+      "fillingMachine": {
+        "title": "Máquina de Envase Automatizada",
+        "description": "Desenvolvimento de máquina para envase automático de líquidos."
+      },
+      "pharmaceuticalLayout": {
+        "title": "Layout Industrial Farmacêutico",
+        "description": "Projeto de layout otimizado para indústria farmacêutica."
+      },
+      "aerospacePrototype": {
+        "title": "Protótipo de Peça Aeronáutica",
+        "description": "Modelagem e renderização de componente para indústria aeronáutica."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contato",
+    "title": "Vamos Conversar Sobre",
+    "titleHighlight": "Seu Projeto",
+    "subtitle": "Entre em contato conosco para discutir suas necessidades de engenharia. Nossa equipe está pronta para ajudar a transformar suas ideias em realidade.",
+    "info": {
+      "phone": "Telefone",
+      "email": "Email",
+      "location": "Localização"
+    },
+    "whatsapp": "Falar pelo WhatsApp",
+    "form": {
+      "title": "Envie uma Mensagem",
+      "name": "Nome",
+      "namePlaceholder": "Seu nome",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "phone": "Telefone",
+      "phonePlaceholder": "(00) 00000-0000",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Selecione...",
+      "subjectOptions": {
+        "quote": "Solicitar Orçamento",
+        "project": "Novo Projeto",
+        "consulting": "Consultoria",
+        "other": "Outro"
+      },
+      "message": "Mensagem",
+      "messagePlaceholder": "Descreva seu projeto ou necessidade...",
+      "send": "Enviar Mensagem",
+      "required": "*"
+    },
+    "toast": {
+      "error": "Erro",
+      "errorDescription": "Por favor, preencha todos os campos obrigatórios.",
+      "success": "Mensagem enviada!",
+      "successDescription": "Você será redirecionado para o WhatsApp.",
+      "whatsappMessage": "Novo Contato - V Lopes Engenharia",
+      "notProvided": "Não informado"
+    }
+  },
+  "footer": {
+    "description": "Transformando ideias em projetos de engenharia com excelência e inovação.",
+    "company": "Empresa",
+    "services": "Serviços",
+    "contact": "Contato",
+    "links": {
+      "about": "Sobre Nós",
+      "services": "Serviços",
+      "projects": "Projetos",
+      "contact": "Contato",
+      "3dModeling": "Modelagem 3D",
+      "technicalProjects": "Projetos Técnicos",
+      "mechanicalEngineering": "Engenharia Mecânica",
+      "consulting": "Consultoria"
+    },
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso",
+    "rights": "Todos os direitos reservados."
+  }
+}
+

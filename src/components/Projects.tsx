@@ -1,58 +1,66 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ExternalLink, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("Todos");
+  const { t } = useTranslation();
+  const [activeFilter, setActiveFilter] = useState(t("projects.filters.all"));
 
-  const filters = ["Todos", "Industrial", "Modelagem 3D", "Mecânico", "Estrutural"];
+  const filters = [
+    t("projects.filters.all"),
+    t("projects.filters.industrial"),
+    t("projects.filters.3dModeling"),
+    t("projects.filters.mechanical"),
+    t("projects.filters.structural"),
+  ];
 
   const projects = [
     {
       id: 1,
-      title: "Sistema de Esteiras Transportadoras",
-      category: "Industrial",
-      description: "Projeto completo de sistema de transporte para linha de produção automotiva.",
+      title: t("projects.items.conveyorSystem.title"),
+      category: t("projects.filters.industrial"),
+      description: t("projects.items.conveyorSystem.description"),
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
     },
     {
       id: 2,
-      title: "Modelagem de Equipamento Industrial",
-      category: "Modelagem 3D",
-      description: "Modelagem 3D detalhada de equipamento para indústria alimentícia.",
+      title: t("projects.items.equipmentModeling.title"),
+      category: t("projects.filters.3dModeling"),
+      description: t("projects.items.equipmentModeling.description"),
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
     },
     {
       id: 3,
-      title: "Estrutura Metálica Galpão",
-      category: "Estrutural",
-      description: "Projeto estrutural de galpão industrial com 2.000m² de área coberta.",
+      title: t("projects.items.metalStructure.title"),
+      category: t("projects.filters.structural"),
+      description: t("projects.items.metalStructure.description"),
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
     },
     {
       id: 4,
-      title: "Máquina de Envase Automatizada",
-      category: "Mecânico",
-      description: "Desenvolvimento de máquina para envase automático de líquidos.",
+      title: t("projects.items.fillingMachine.title"),
+      category: t("projects.filters.mechanical"),
+      description: t("projects.items.fillingMachine.description"),
       image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop",
     },
     {
       id: 5,
-      title: "Layout Industrial Farmacêutico",
-      category: "Industrial",
-      description: "Projeto de layout otimizado para indústria farmacêutica.",
+      title: t("projects.items.pharmaceuticalLayout.title"),
+      category: t("projects.filters.industrial"),
+      description: t("projects.items.pharmaceuticalLayout.description"),
       image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&h=400&fit=crop",
     },
     {
       id: 6,
-      title: "Protótipo de Peça Aeronáutica",
-      category: "Modelagem 3D",
-      description: "Modelagem e renderização de componente para indústria aeronáutica.",
+      title: t("projects.items.aerospacePrototype.title"),
+      category: t("projects.filters.3dModeling"),
+      description: t("projects.items.aerospacePrototype.description"),
       image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&h=400&fit=crop",
     },
   ];
 
-  const filteredProjects = activeFilter === "Todos"
+  const filteredProjects = activeFilter === t("projects.filters.all")
     ? projects
     : projects.filter((p) => p.category === activeFilter);
 
@@ -64,14 +72,14 @@ const Projects = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
-            Portfólio
+            {t("projects.badge")}
           </span>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
-            Nossos
-            <span className="text-gradient-gold"> Projetos</span>
+            {t("projects.title")}
+            <span className="text-gradient-gold"> {t("projects.titleHighlight")}</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Conheça alguns dos projetos que desenvolvemos para nossos clientes.
+            {t("projects.subtitle")}
           </p>
         </div>
 
@@ -138,7 +146,7 @@ const Projects = () => {
         {/* CTA */}
         <div className="text-center mt-12">
           <Button variant="outline" size="lg">
-            Ver Todos os Projetos
+            {t("projects.viewAll")}
           </Button>
         </div>
       </div>

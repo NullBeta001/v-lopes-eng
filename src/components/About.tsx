@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { Target, Award, Users, Lightbulb, Box, Pencil, Home, Building2, Settings } from "lucide-react";
 
 const About = () => {
+  const { t } = useTranslation();
+
   const software = [
     { name: "SolidWorks", icon: Settings, color: "from-red-500 to-red-600" },
     { name: "AutoCAD", icon: Pencil, color: "from-blue-500 to-blue-600" },
@@ -12,23 +15,23 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: "Precisão",
-      description: "Cada detalhe é importante. Nossos projetos são desenvolvidos com rigor técnico e atenção aos mínimos detalhes.",
+      title: t("about.values.precision.title"),
+      description: t("about.values.precision.description"),
     },
     {
       icon: Award,
-      title: "Qualidade",
-      description: "Utilizamos as melhores práticas e softwares do mercado para garantir resultados excepcionais.",
+      title: t("about.values.quality.title"),
+      description: t("about.values.quality.description"),
     },
     {
       icon: Users,
-      title: "Parceria",
-      description: "Trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e superando expectativas.",
+      title: t("about.values.partnership.title"),
+      description: t("about.values.partnership.description"),
     },
     {
       icon: Lightbulb,
-      title: "Inovação",
-      description: "Buscamos constantemente novas soluções e tecnologias para otimizar nossos projetos.",
+      title: t("about.values.innovation.title"),
+      description: t("about.values.innovation.description"),
     },
   ];
 
@@ -42,21 +45,17 @@ const About = () => {
           {/* Left Content */}
           <div>
             <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
-              Sobre Nós
+              {t("about.badge")}
             </span>
             <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
-              Engenharia com
-              <span className="text-gradient-gold"> Excelência</span>
+              {t("about.title")}
+              <span className="text-gradient-gold"> {t("about.titleHighlight")}</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              A <strong className="text-foreground">V Lopes Engenharia</strong> é especializada em projetos 
-              industriais e modelagem 3D. Com anos de experiência no mercado, oferecemos 
-              soluções técnicas de alta qualidade para indústrias de diversos segmentos.
+              {t("about.description1")}
             </p>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Nossa equipe de engenheiros e projetistas está preparada para transformar 
-              suas ideias em projetos viáveis, utilizando as ferramentas mais avançadas 
-              do mercado como SolidWorks, AutoCAD e SketchUp.
+              {t("about.description2")}
             </p>
 
             {/* Software Cards */}
