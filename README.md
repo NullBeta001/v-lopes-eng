@@ -210,7 +210,7 @@ Components are organized by feature and type:
 
 ### Git Hooks (Husky)
 
-This project uses [Husky](https://typicode.github.io/husky/) to run Git hooks automatically:
+This project uses [Husky](https://typicode.github.io/husky/) v9+ to run Git hooks automatically:
 
 - **Pre-commit Hook**: Automatically runs `npm run build` before each commit
   - If the build fails, the commit is aborted
@@ -229,6 +229,16 @@ To bypass the pre-commit hook (not recommended):
 ```bash
 git commit --no-verify
 ```
+
+### Line Endings
+
+This project uses a `.gitattributes` file to ensure consistent line endings across all platforms:
+
+- Text files use LF (Unix-style) line endings
+- Binary files are handled appropriately
+- This prevents CRLF/LF conversion warnings on Windows
+
+The Git configuration is set to `core.autocrlf=input` to maintain LF endings in the repository while allowing Windows developers to work comfortably.
 
 ## 📝 License
 
