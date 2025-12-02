@@ -75,13 +75,14 @@ Before you begin, ensure you have the following installed:
 
 ## 📜 Available Scripts
 
-| Command             | Description                                               |
-| ------------------- | --------------------------------------------------------- |
-| `npm run dev`       | Starts the development server with hot module replacement |
-| `npm run build`     | Creates an optimized production build                     |
-| `npm run build:dev` | Creates a development build                               |
-| `npm run preview`   | Previews the production build locally                     |
-| `npm run lint`      | Runs ESLint to check code quality                         |
+| Command             | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| `npm run dev`       | Starts the development server with hot module replacement   |
+| `npm run build`     | Creates an optimized production build                       |
+| `npm run build:dev` | Creates a development build                                 |
+| `npm run preview`   | Previews the production build locally                       |
+| `npm run lint`      | Runs ESLint to check code quality                           |
+| `npm run prepare`   | Initializes Husky Git hooks (runs automatically on install) |
 
 ## 📁 Project Structure
 
@@ -206,6 +207,28 @@ Components are organized by feature and type:
 - **UI Components**: Reusable components in `src/components/ui/`
 - **Feature Components**: Page-specific components in `src/components/`
 - **Pages**: Route-level components in `src/pages/`
+
+### Git Hooks (Husky)
+
+This project uses [Husky](https://typicode.github.io/husky/) to run Git hooks automatically:
+
+- **Pre-commit Hook**: Automatically runs `npm run build` before each commit
+  - If the build fails, the commit is aborted
+  - This ensures that only working code is committed to the repository
+
+The hooks are automatically set up when you run `npm install` (via the `prepare` script).
+
+To manually initialize Husky:
+
+```bash
+npm run prepare
+```
+
+To bypass the pre-commit hook (not recommended):
+
+```bash
+git commit --no-verify
+```
 
 ## 📝 License
 
