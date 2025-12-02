@@ -212,9 +212,10 @@ Components are organized by feature and type:
 
 This project uses [Husky](https://typicode.github.io/husky/) v9+ to run Git hooks automatically:
 
-- **Pre-commit Hook**: Automatically runs `npm run build` before each commit
-  - If the build fails, the commit is aborted
-  - This ensures that only working code is committed to the repository
+- **Pre-push Hook**: Automatically runs `npm run build` before each push to remote
+  - If the build fails, the push is aborted
+  - This ensures that only working code is pushed to the repository
+  - Allows you to make local commits without building, improving development workflow
 
 The hooks are automatically set up when you run `npm install` (via the `prepare` script).
 
@@ -224,10 +225,10 @@ To manually initialize Husky:
 npm run prepare
 ```
 
-To bypass the pre-commit hook (not recommended):
+To bypass the pre-push hook (not recommended):
 
 ```bash
-git commit --no-verify
+git push --no-verify
 ```
 
 ### Line Endings
