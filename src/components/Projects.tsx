@@ -1,68 +1,72 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { ExternalLink, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
-  const { t } = useTranslation();
-  const [activeFilter, setActiveFilter] = useState(t("projects.filters.all"));
+  const { t, i18n } = useTranslation();
+  const [activeFilterKey, setActiveFilterKey] = useState("all");
 
-  const filters = [
-    t("projects.filters.all"),
-    t("projects.filters.industrial"),
-    t("projects.filters.3dModeling"),
-    t("projects.filters.mechanical"),
-    t("projects.filters.structural"),
-  ];
+  const filterKeys = ["all", "industrial", "3dModeling", "mechanical", "structural"];
 
-  const projects = [
+  const filters = filterKeys.map((key) => ({
+    key,
+    label: t(`projects.filters.${key}`),
+  }));
+
+  const projects = useMemo(() => [
     {
       id: 1,
       title: t("projects.items.conveyorSystem.title"),
-      category: t("projects.filters.industrial"),
+      categoryKey: "industrial",
       description: t("projects.items.conveyorSystem.description"),
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
     },
     {
       id: 2,
       title: t("projects.items.equipmentModeling.title"),
-      category: t("projects.filters.3dModeling"),
+      categoryKey: "3dModeling",
       description: t("projects.items.equipmentModeling.description"),
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
     },
     {
       id: 3,
       title: t("projects.items.metalStructure.title"),
-      category: t("projects.filters.structural"),
+      categoryKey: "structural",
       description: t("projects.items.metalStructure.description"),
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
     },
     {
       id: 4,
       title: t("projects.items.fillingMachine.title"),
-      category: t("projects.filters.mechanical"),
+      categoryKey: "mechanical",
       description: t("projects.items.fillingMachine.description"),
       image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop",
     },
     {
       id: 5,
       title: t("projects.items.pharmaceuticalLayout.title"),
-      category: t("projects.filters.industrial"),
+      categoryKey: "industrial",
       description: t("projects.items.pharmaceuticalLayout.description"),
       image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&h=400&fit=crop",
     },
     {
       id: 6,
       title: t("projects.items.aerospacePrototype.title"),
-      category: t("projects.filters.3dModeling"),
+      categoryKey: "3dModeling",
       description: t("projects.items.aerospacePrototype.description"),
       image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&h=400&fit=crop",
     },
-  ];
+  ], [t]);
 
-  const filteredProjects = activeFilter === t("projects.filters.all")
+  const filteredProjects = activeFilterKey === "all"
     ? projects
-    : projects.filter((p) => p.category === activeFilter);
+    : projects.filter((p) => p.categoryKey === activeFilterKey);
+
+  // Reset filter when language changes
+  useEffect(() => {
+    setActiveFilterKey("all");
+  }, [i18n.language]);
 
   return (
     <section id="projetos" className="py-24 bg-card relative overflow-hidden">
@@ -87,15 +91,15 @@ const Projects = () => {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => (
             <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
+              key={filter.key}
+              onClick={() => setActiveFilterKey(filter.key)}
               className={`px-5 py-2 rounded-full font-heading text-sm uppercase tracking-wider transition-all duration-300 ${
-                activeFilter === filter
+                activeFilterKey === filter.key
                   ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(38_70%_50%/0.3)]"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
               }`}
             >
-              {filter}
+              {filter.label}
             </button>
           ))}
         </div>
@@ -130,7 +134,7 @@ const Projects = () => {
               {/* Content */}
               <div className="p-6">
                 <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium uppercase tracking-wider rounded-full mb-3">
-                  {project.category}
+                  {t(`projects.filters.${project.categoryKey}`)}
                 </span>
                 <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
                   {project.title}
