@@ -1,13 +1,13 @@
 import { ArrowDown, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { fadeInUp, visible, staggerContainer, staggerItem, viewportOptions, defaultTransition, fastTransition } from "@/lib/animations";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Smooth mouse tracking with Motion
   const mouseX = useMotionValue(0);
@@ -32,6 +32,15 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
+  // Garantir que o vídeo toque
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Ignorar erros de autoplay
+      });
+    }
+  }, []);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -47,15 +56,28 @@ const Hero = () => {
       animate="visible"
     >
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 overflow-hidden"
         style={{
-          backgroundImage: `url(${heroBg})`,
-          scale: 1.1,
+          scale: 1.15,
           x: backgroundX,
           y: backgroundY,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            transform: "scale(1.2)",
+            objectPosition: "center",
+          }}
+        >
+          <source src="/videos/video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/90" />
         <motion.div
           className="absolute inset-0 bg-grid-pattern opacity-30"
           animate={{
