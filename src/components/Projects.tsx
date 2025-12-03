@@ -73,7 +73,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-24 bg-card relative overflow-hidden"
+      className="py-24 bg-card relative overflow-hidden min-h-screen flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -91,7 +91,7 @@ const Projects = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-12"
           initial={fadeInUp}

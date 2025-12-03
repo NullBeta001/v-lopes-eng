@@ -38,7 +38,7 @@ const About = () => {
   return (
     <motion.section
       id="sobre"
-      className="py-24 bg-card relative overflow-hidden"
+      className="py-24 bg-card relative overflow-hidden min-h-screen flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -56,7 +56,7 @@ const About = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={fadeInLeft}

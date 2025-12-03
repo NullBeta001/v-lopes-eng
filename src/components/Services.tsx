@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <motion.section
       id="servicos"
-      className="py-24 bg-background relative overflow-hidden"
+      className="py-24 bg-background relative overflow-hidden min-h-screen flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
