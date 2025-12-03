@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,9 +8,9 @@ import {
 import { Button } from '@/components/ui/button';
 
 const languages = [
-  { code: 'pt', name: 'Português', flag: '🇧🇷' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'pt', name: 'Português', flag: '/flags/brazil-.png' },
+  { code: 'en', name: 'English', flag: '/flags/united-kingdom.png' },
+  { code: 'es', name: 'Español', flag: '/flags/spain.png' },
 ];
 
 const LanguageSelector = () => {
@@ -31,9 +30,12 @@ const LanguageSelector = () => {
           size="sm"
           className="gap-2 text-foreground/80 hover:text-primary"
         >
-          <Globe size={18} />
-          <span className="hidden sm:inline">{currentLanguage.flag} {currentLanguage.name}</span>
-          <span className="sm:hidden">{currentLanguage.flag}</span>
+          <img
+            src={currentLanguage.flag}
+            alt={currentLanguage.name}
+            className="w-5 h-5 object-cover rounded-sm"
+          />
+          <span className="hidden sm:inline">{currentLanguage.name}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[150px]">
@@ -41,12 +43,15 @@ const LanguageSelector = () => {
           <DropdownMenuItem
             key={lang.code}
             onClick={() => changeLanguage(lang.code)}
-            className={`cursor-pointer ${
-              i18n.language === lang.code ? 'bg-primary/10 text-primary' : ''
-            }`}
+            className={`cursor-pointer flex items-center gap-2 ${i18n.language === lang.code ? 'bg-primary/10 text-primary' : ''
+              }`}
           >
-            <span className="mr-2">{lang.flag}</span>
-            {lang.name}
+            <img
+              src={lang.flag}
+              alt={lang.name}
+              className="w-5 h-5 object-cover rounded-sm"
+            />
+            <span>{lang.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Cog, Box, FileText, Ruler, Factory, Wrench, Shield, HardHat, ClipboardCheck, FileCheck } from "lucide-react";
+import { Cog, Box, FileText, Ruler, Wrench, Shield, HardHat, ClipboardCheck, FileCheck } from "lucide-react";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -16,12 +16,6 @@ const Services = () => {
       title: t("services.items.technicalProjects.title"),
       description: t("services.items.technicalProjects.description"),
       features: t("services.items.technicalProjects.features", { returnObjects: true }) as string[],
-    },
-    {
-      icon: Factory,
-      title: t("services.items.industrialProjects.title"),
-      description: t("services.items.industrialProjects.description"),
-      features: t("services.items.industrialProjects.features", { returnObjects: true }) as string[],
     },
     {
       icon: Cog,
