@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <motion.section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
       initial="hidden"
       animate="visible"
     >
@@ -175,7 +175,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-10"
             initial={fadeInUp}
             animate={visible}
             transition={defaultTransition}

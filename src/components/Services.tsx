@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <motion.section
       id="servicos"
-      className="py-24 bg-background relative overflow-hidden"
+      className="h-screen bg-background relative overflow-hidden flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -84,29 +84,29 @@ const Services = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 lg:px-8 py-4 relative z-10 w-full h-full flex flex-col justify-center">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-4"
           initial={fadeInUp}
           whileInView={visible}
           viewport={viewportOptions}
           transition={defaultTransition}
           exit={fadeInUp}
         >
-          <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
+          <span className="inline-block text-primary font-heading text-xs uppercase tracking-widest mb-1">
             {t("services.badge")}
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
+          <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground mb-3">
             {t("services.title")}
             <span className="text-gradient-gold"> {t("services.titleHighlight")}</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm">
             {t("services.subtitle")}
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -116,35 +116,38 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-8 bg-card rounded-2xl border border-border hover:border-primary/50"
+              className="group px-4 py-5 bg-card rounded-lg border border-border hover:border-primary/50"
               variants={staggerItem}
-              whileHover={{ y: -12, scale: 1.02 }}
+              whileHover={{ y: -6, scale: 1.01 }}
               transition={defaultTransition}
             >
-              <motion.div
-                className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6"
-                whileHover={{
-                  background: "linear-gradient(135deg, hsl(38 70% 50% / 0.3), hsl(38 70% 50% / 0.1))",
-                  scale: 1.1,
-                  rotate: 5,
-                }}
-                transition={defaultTransition}
-              >
-                <service.icon className="w-8 h-8 text-primary" />
-              </motion.div>
+              {/* Icon and Title in same row */}
+              <div className="flex items-center gap-3 mb-4">
+                <motion.div
+                  className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0"
+                  whileHover={{
+                    background: "linear-gradient(135deg, hsl(38 70% 50% / 0.3), hsl(38 70% 50% / 0.1))",
+                    scale: 1.1,
+                    rotate: 5,
+                  }}
+                  transition={defaultTransition}
+                >
+                  <service.icon className="w-6 h-6 text-primary" />
+                </motion.div>
+                <h3 className="font-heading font-semibold text-base text-foreground">
+                  {service.title}
+                </h3>
+              </div>
 
-              <h3 className="font-heading font-semibold text-xl text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
                 {service.description}
               </p>
 
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {feature}
+                  <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="line-clamp-1">{feature}</span>
                   </li>
                 ))}
               </ul>

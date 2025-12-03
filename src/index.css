@@ -203,20 +203,29 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar but keep functionality */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(220 20% 8%);
+/* For Firefox */
+html {
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(38 70% 50%);
-  border-radius: 4px;
+/* Smooth scroll snap - mandatory para pular de seção em seção */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 80% 60%);
+body {
+  overflow-x: hidden;
+}
+
+section,
+footer[id] {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }

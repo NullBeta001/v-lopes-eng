@@ -38,7 +38,7 @@ const About = () => {
   return (
     <motion.section
       id="sobre"
-      className="py-24 bg-card relative overflow-hidden"
+      className="h-screen bg-card relative overflow-hidden flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -56,8 +56,8 @@ const About = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 lg:px-8 py-8 relative z-10 w-full h-full flex items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
           <motion.div
             initial={fadeInLeft}
             whileInView={visible}
@@ -65,22 +65,22 @@ const About = () => {
             transition={defaultTransition}
             exit={fadeInLeft}
           >
-            <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
+            <span className="inline-block text-primary font-heading text-xs uppercase tracking-widest mb-2">
               {t("about.badge")}
             </span>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
+            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground mb-3">
               {t("about.title")}
               <span className="text-gradient-gold"> {t("about.titleHighlight")}</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+            <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
               {t("about.description1")}
             </p>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+            <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
               {t("about.description2")}
             </p>
 
             <motion.div
-              className="grid grid-cols-3 gap-3"
+              className="grid grid-cols-3 gap-2"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -127,7 +127,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 gap-6"
+            className="grid sm:grid-cols-2 gap-4"
             initial={fadeInRight}
             whileInView={visible}
             viewport={viewportOptions}
@@ -138,13 +138,13 @@ const About = () => {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="p-6 bg-background rounded-xl border border-border hover:border-primary/50 group"
+                className="p-4 bg-background rounded-xl border border-border hover:border-primary/50 group"
                 variants={staggerItem}
                 whileHover={{ y: -12, scale: 1.02 }}
                 transition={defaultTransition}
               >
                 <motion.div
-                  className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                  className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3"
                   whileHover={{
                     backgroundColor: "hsl(38 70% 50% / 0.2)",
                     scale: 1.1,
@@ -153,10 +153,10 @@ const About = () => {
                 >
                   <value.icon className="w-7 h-7 text-primary" />
                 </motion.div>
-                <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-1">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>

@@ -8,6 +8,7 @@ const Navigation = () => {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#inicio");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,18 +18,61 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Detect active section using Intersection Observer
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id], footer[id]");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Trigger when section is in the middle-upper part of viewport
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          if (id) {
+            setActiveSection(`#${id}`);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const navLinks = [
     { href: "#inicio", label: t("nav.home") },
     { href: "#sobre", label: t("nav.about") },
     { href: "#servicos", label: t("nav.services") },
     { href: "#projetos", label: t("nav.projects") },
     { href: "#contato", label: t("nav.contact") },
+    { href: "#rodape", label: t("nav.info") },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Temporarily disable scroll snap for programmatic navigation
+      const html = document.documentElement;
+      const originalSnapType = html.style.scrollSnapType;
+      html.style.scrollSnapType = "none";
+
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Re-enable scroll snap after scroll completes
+      setTimeout(() => {
+        html.style.scrollSnapType = originalSnapType || "";
+      }, 1000);
     }
     setIsMobileMenuOpen(false);
   };
@@ -60,19 +104,25 @@ const Navigation = () => {
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="font-heading text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300 gold-underline py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className={`font-heading text-sm uppercase tracking-wider transition-colors duration-300 gold-underline py-2 ${isActive
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-primary"
+                    }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
@@ -98,19 +148,25 @@ const Navigation = () => {
             }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="font-heading text-sm uppercase tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300 py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className={`font-heading text-sm uppercase tracking-wider transition-colors duration-300 py-2 ${isActive
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-primary"
+                    }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             <div className="flex items-center gap-2 mt-2">
               <LanguageSelector />
               <Button
