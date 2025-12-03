@@ -35,15 +35,13 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
+        : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <a
             href="#inicio"
             onClick={(e) => {
@@ -61,7 +59,6 @@ const Navigation = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -78,7 +75,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Language Selector & CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSelector />
             <Button
@@ -89,7 +85,6 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
@@ -98,11 +93,9 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
-          }`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
+            }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border">
             {navLinks.map((link) => (

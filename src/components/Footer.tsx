@@ -36,9 +36,7 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Main Footer */}
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
@@ -52,8 +50,7 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               {t("footer.description")}
             </p>
-            
-            {/* Social Links */}
+
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <a
@@ -70,7 +67,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links - Empresa */}
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-6 uppercase tracking-wider text-sm">
               {t("footer.company")}
@@ -93,7 +89,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links - Serviços */}
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-6 uppercase tracking-wider text-sm">
               {t("footer.services")}
@@ -116,7 +111,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-6 uppercase tracking-wider text-sm">
               {t("footer.contact")}
@@ -138,7 +132,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} V Lopes Engenharia. {t("footer.rights")}

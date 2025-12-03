@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "motion/react";
+import { fadeInLeft, fadeInRight, visible, viewportOptions, hoverLift, defaultTransition, staggerContainer, staggerItem } from "@/lib/animations";
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -17,7 +19,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate form
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -82,11 +84,35 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-24 bg-background relative">
-      <div className="container mx-auto px-4 lg:px-8">
+    <motion.section
+      id="contato"
+      className="py-24 bg-background relative overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOptions}
+    >
+      <motion.div
+        className="absolute inset-0 bg-blueprint opacity-5"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear",
+        }}
+      />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left Side - Info */}
-          <div>
+          <motion.div
+            initial={fadeInLeft}
+            whileInView={visible}
+            viewport={viewportOptions}
+            transition={defaultTransition}
+            exit={fadeInLeft}
+          >
             <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
               {t("contact.badge")}
             </span>
@@ -98,43 +124,69 @@ const Contact = () => {
               {t("contact.subtitle")}
             </p>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4 mb-10">
+            <motion.div
+              className="space-y-4 mb-10"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOptions}
+            >
               {contactInfo.map((info, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={info.href}
-                  className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300 group"
+                  className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/50 group"
+                  variants={staggerItem}
+                  whileHover={{ y: -12, scale: 1.02 }}
+                  transition={defaultTransition}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <motion.div
+                    className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center"
+                    whileHover={{
+                      backgroundColor: "hsl(38 70% 50% / 0.2)",
+                      scale: 1.1,
+                      rotate: 5,
+                    }}
+                    transition={defaultTransition}
+                  >
                     <info.icon className="w-5 h-5 text-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm text-muted-foreground">{info.title}</p>
                     <p className="font-medium text-foreground">{info.value}</p>
                   </div>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
 
-            {/* WhatsApp Direct Button */}
-            <Button
-              variant="hero"
-              size="lg"
-              className="w-full sm:w-auto"
-              onClick={() => window.open("https://wa.me/5500000000000", "_blank")}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <MessageCircle className="mr-2" size={20} />
-              {t("contact.whatsapp")}
-            </Button>
-          </div>
+              <Button
+                variant="hero"
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => window.open("https://wa.me/5500000000000", "_blank")}
+              >
+                <MessageCircle className="mr-2" size={20} />
+                {t("contact.whatsapp")}
+              </Button>
+            </motion.div>
+          </motion.div>
 
-          {/* Right Side - Form */}
-          <div className="bg-card p-8 md:p-10 rounded-2xl border border-border">
+          <motion.div
+            className="bg-card p-8 md:p-10 rounded-2xl border border-border"
+            initial={fadeInRight}
+            whileInView={visible}
+            viewport={viewportOptions}
+            transition={defaultTransition}
+            exit={fadeInRight}
+          >
             <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
               {t("contact.form.title")}
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
@@ -220,10 +272,10 @@ const Contact = () => {
                 {t("contact.form.send")}
               </Button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
