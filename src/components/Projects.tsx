@@ -73,7 +73,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projetos"
-      className="py-24 bg-card relative overflow-hidden min-h-screen flex items-center"
+      className="h-screen bg-card relative overflow-hidden flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -91,29 +91,29 @@ const Projects = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full">
+      <div className="container mx-auto px-4 lg:px-8 py-8 relative z-10 w-full h-full flex flex-col justify-center">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-6"
           initial={fadeInUp}
           whileInView={visible}
           viewport={viewportOptions}
           transition={defaultTransition}
           exit={fadeInUp}
         >
-          <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
+          <span className="inline-block text-primary font-heading text-xs uppercase tracking-widest mb-2">
             {t("projects.badge")}
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
+          <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground mb-3">
             {t("projects.title")}
             <span className="text-gradient-gold"> {t("projects.titleHighlight")}</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm">
             {t("projects.subtitle")}
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-6"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -124,7 +124,7 @@ const Projects = () => {
             <motion.button
               key={filter.key}
               onClick={() => setActiveFilterKey(filter.key)}
-              className={`px-5 py-2 rounded-full font-heading text-sm uppercase tracking-wider ${activeFilterKey === filter.key
+              className={`px-3 py-1.5 rounded-full font-heading text-xs uppercase tracking-wider ${activeFilterKey === filter.key
                 ? "bg-primary text-primary-foreground"
                 : "bg-secondary text-secondary-foreground"
                 }`}
@@ -147,7 +147,7 @@ const Projects = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilterKey}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -163,7 +163,7 @@ const Projects = () => {
                 transition={defaultTransition}
                 layout
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <motion.img
                     src={project.image}
                     alt={project.title}
@@ -206,14 +206,14 @@ const Projects = () => {
                   </motion.div>
                 </div>
 
-                <div className="p-6">
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium uppercase tracking-wider rounded-full mb-3">
+                <div className="p-4">
+                  <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium uppercase tracking-wider rounded-full mb-2">
                     {t(`projects.filters.${project.categoryKey}`)}
                   </span>
-                  <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+                  <h3 className="font-heading font-semibold text-base text-foreground mb-1">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     {project.description}
                   </p>
                 </div>

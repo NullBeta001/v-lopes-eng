@@ -214,12 +214,18 @@ html {
   scrollbar-width: none;
 }
 
-/* Smooth scroll snap */
+/* Smooth scroll snap - mandatory para pular de seção em seção */
 html {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
-section {
+body {
+  overflow-x: hidden;
+}
+
+section,
+footer[id] {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
