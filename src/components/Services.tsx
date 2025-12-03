@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Cog, Box, FileText, Ruler, Wrench, Shield, HardHat, ClipboardCheck, FileCheck } from "lucide-react";
+import { motion } from "motion/react";
+import { fadeInUp, visible, viewportOptions, hoverLift, defaultTransition, staggerContainer, staggerItem } from "@/lib/animations";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -62,10 +64,35 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-24 bg-background relative">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <motion.section
+      id="servicos"
+      className="py-24 bg-background relative overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOptions}
+    >
+      <motion.div
+        className="absolute inset-0 bg-grid-pattern opacity-5"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear",
+        }}
+      />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={fadeInUp}
+          whileInView={visible}
+          viewport={viewportOptions}
+          transition={defaultTransition}
+          exit={fadeInUp}
+        >
           <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
             {t("services.badge")}
           </span>
@@ -76,21 +103,36 @@ const Services = () => {
           <p className="text-muted-foreground text-lg">
             {t("services.subtitle")}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          exit="hidden"
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group p-8 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 hover-lift"
+              className="group p-8 bg-card rounded-2xl border border-border hover:border-primary/50"
+              variants={staggerItem}
+              whileHover={{ y: -12, scale: 1.02 }}
+              transition={defaultTransition}
             >
-              {/* Icon */}
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300">
+              <motion.div
+                className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6"
+                whileHover={{
+                  background: "linear-gradient(135deg, hsl(38 70% 50% / 0.3), hsl(38 70% 50% / 0.1))",
+                  scale: 1.1,
+                  rotate: 5,
+                }}
+                transition={defaultTransition}
+              >
                 <service.icon className="w-8 h-8 text-primary" />
-              </div>
+              </motion.div>
 
-              {/* Content */}
               <h3 className="font-heading font-semibold text-xl text-foreground mb-3">
                 {service.title}
               </h3>
@@ -98,7 +140,6 @@ const Services = () => {
                 {service.description}
               </p>
 
-              {/* Features */}
               <ul className="space-y-2">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -107,11 +148,11 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
