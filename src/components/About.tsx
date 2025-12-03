@@ -1,34 +1,35 @@
-import { Target, Award, Users, Lightbulb, Box, Pencil, Home, Building2, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Target, Award, Users, Lightbulb } from "lucide-react";
 
 const About = () => {
+  const { t } = useTranslation();
+
   const software = [
-    { name: "SolidWorks", icon: Settings, color: "from-red-500 to-red-600" },
-    { name: "AutoCAD", icon: Pencil, color: "from-blue-500 to-blue-600" },
-    { name: "SketchUp", icon: Home, color: "from-orange-500 to-orange-600" },
-    { name: "Revit", icon: Building2, color: "from-cyan-500 to-cyan-600" },
-    { name: "Inventor", icon: Box, color: "from-amber-500 to-amber-600" },
+    { name: "SolidWorks", image: "/tools/solid-symbol.png" },
+    { name: "AutoCAD", image: "/tools/autocad.webp" },
+    { name: "SketchUp", image: "/tools/sketchup.png" },
   ];
 
   const values = [
     {
       icon: Target,
-      title: "Precisão",
-      description: "Cada detalhe é importante. Nossos projetos são desenvolvidos com rigor técnico e atenção aos mínimos detalhes.",
+      title: t("about.values.precision.title"),
+      description: t("about.values.precision.description"),
     },
     {
       icon: Award,
-      title: "Qualidade",
-      description: "Utilizamos as melhores práticas e softwares do mercado para garantir resultados excepcionais.",
+      title: t("about.values.quality.title"),
+      description: t("about.values.quality.description"),
     },
     {
       icon: Users,
-      title: "Parceria",
-      description: "Trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e superando expectativas.",
+      title: t("about.values.partnership.title"),
+      description: t("about.values.partnership.description"),
     },
     {
       icon: Lightbulb,
-      title: "Inovação",
-      description: "Buscamos constantemente novas soluções e tecnologias para otimizar nossos projetos.",
+      title: t("about.values.innovation.title"),
+      description: t("about.values.innovation.description"),
     },
   ];
 
@@ -42,34 +43,40 @@ const About = () => {
           {/* Left Content */}
           <div>
             <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
-              Sobre Nós
+              {t("about.badge")}
             </span>
             <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
-              Engenharia com
-              <span className="text-gradient-gold"> Excelência</span>
+              {t("about.title")}
+              <span className="text-gradient-gold"> {t("about.titleHighlight")}</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              A <strong className="text-foreground">V Lopes Engenharia</strong> é especializada em projetos 
-              industriais e modelagem 3D. Com anos de experiência no mercado, oferecemos 
-              soluções técnicas de alta qualidade para indústrias de diversos segmentos.
+              {t("about.description1")}
             </p>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Nossa equipe de engenheiros e projetistas está preparada para transformar 
-              suas ideias em projetos viáveis, utilizando as ferramentas mais avançadas 
-              do mercado como SolidWorks, AutoCAD e SketchUp.
+              {t("about.description2")}
             </p>
 
             {/* Software Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-3 gap-3">
               {software.map((item) => (
                 <div
                   key={item.name}
-                  className="group relative p-4 bg-background rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover-lift text-center"
+                  className="group relative p-3 bg-gradient-to-br from-background via-background to-card rounded-xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover-lift text-center shadow-sm hover:shadow-md hover:shadow-primary/10"
                 >
-                  <div className={`w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <item.icon className="w-5 h-5 text-white" />
+                  {/* Background glow effect */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/0 group-hover:to-primary/5 transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                  
+                  {/* Image container */}
+                  <div className="relative z-10 w-12 h-12 mx-auto mb-2 rounded-lg bg-gradient-to-br from-card to-background flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:shadow-primary/20 transition-all duration-500 group-hover:scale-110 overflow-hidden border border-border/30 group-hover:border-primary/30">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <span className="text-xs font-semibold text-foreground tracking-wide">
+                  
+                  {/* Name */}
+                  <span className="relative z-10 text-xs font-semibold text-foreground tracking-wide group-hover:text-primary transition-colors duration-300">
                     {item.name}
                   </span>
                 </div>

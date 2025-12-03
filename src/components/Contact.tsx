@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -19,8 +21,8 @@ const Contact = () => {
     // Validate form
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Erro",
-        description: "Por favor, preencha todos os campos obrigatórios.",
+        title: t("contact.toast.error"),
+        description: t("contact.toast.errorDescription"),
         variant: "destructive",
       });
       return;
@@ -28,20 +30,20 @@ const Contact = () => {
 
     // Create WhatsApp message
     const whatsappMessage = encodeURIComponent(
-      `*Novo Contato - V Lopes Engenharia*\n\n` +
-      `*Nome:* ${formData.name}\n` +
-      `*Email:* ${formData.email}\n` +
-      `*Telefone:* ${formData.phone || "Não informado"}\n` +
-      `*Assunto:* ${formData.subject || "Não informado"}\n\n` +
-      `*Mensagem:*\n${formData.message}`
+      `*${t("contact.toast.whatsappMessage")}*\n\n` +
+      `*${t("contact.form.name")}:* ${formData.name}\n` +
+      `*${t("contact.info.email")}:* ${formData.email}\n` +
+      `*${t("contact.info.phone")}:* ${formData.phone || t("contact.toast.notProvided")}\n` +
+      `*${t("contact.form.subject")}:* ${formData.subject || t("contact.toast.notProvided")}\n\n` +
+      `*${t("contact.form.message")}:*\n${formData.message}`
     );
 
     // Open WhatsApp (replace with your actual WhatsApp number)
     window.open(`https://wa.me/5500000000000?text=${whatsappMessage}`, "_blank");
 
     toast({
-      title: "Mensagem enviada!",
-      description: "Você será redirecionado para o WhatsApp.",
+      title: t("contact.toast.success"),
+      description: t("contact.toast.successDescription"),
     });
 
     // Reset form
@@ -61,19 +63,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Telefone",
+      title: t("contact.info.phone"),
       value: "(00) 00000-0000",
       href: "tel:+5500000000000",
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t("contact.info.email"),
       value: "contato@vlopes.com.br",
       href: "mailto:contato@vlopes.com.br",
     },
     {
       icon: MapPin,
-      title: "Localização",
+      title: t("contact.info.location"),
       value: "São Paulo, SP - Brasil",
       href: "#",
     },
@@ -86,15 +88,14 @@ const Contact = () => {
           {/* Left Side - Info */}
           <div>
             <span className="inline-block text-primary font-heading text-sm uppercase tracking-widest mb-4">
-              Contato
+              {t("contact.badge")}
             </span>
             <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
-              Vamos Conversar Sobre
-              <span className="text-gradient-gold"> Seu Projeto</span>
+              {t("contact.title")}
+              <span className="text-gradient-gold"> {t("contact.titleHighlight")}</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Entre em contato conosco para discutir suas necessidades de engenharia. 
-              Nossa equipe está pronta para ajudar a transformar suas ideias em realidade.
+              {t("contact.subtitle")}
             </p>
 
             {/* Contact Info Cards */}
@@ -124,21 +125,21 @@ const Contact = () => {
               onClick={() => window.open("https://wa.me/5500000000000", "_blank")}
             >
               <MessageCircle className="mr-2" size={20} />
-              Falar pelo WhatsApp
+              {t("contact.whatsapp")}
             </Button>
           </div>
 
           {/* Right Side - Form */}
           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border">
             <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
-              Envie uma Mensagem
+              {t("contact.form.title")}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Nome *
+                    {t("contact.form.name")} {t("contact.form.required")}
                   </label>
                   <input
                     type="text"
@@ -146,13 +147,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground"
-                    placeholder="Seu nome"
+                    placeholder={t("contact.form.namePlaceholder")}
                     required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Email *
+                    {t("contact.form.email")} {t("contact.form.required")}
                   </label>
                   <input
                     type="email"
@@ -160,7 +161,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground"
-                    placeholder="seu@email.com"
+                    placeholder={t("contact.form.emailPlaceholder")}
                     required
                   />
                 </div>
@@ -169,7 +170,7 @@ const Contact = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Telefone
+                    {t("contact.form.phone")}
                   </label>
                   <input
                     type="tel"
@@ -177,12 +178,12 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground"
-                    placeholder="(00) 00000-0000"
+                    placeholder={t("contact.form.phonePlaceholder")}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Assunto
+                    {t("contact.form.subject")}
                   </label>
                   <select
                     name="subject"
@@ -190,18 +191,18 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-foreground"
                   >
-                    <option value="">Selecione...</option>
-                    <option value="Orçamento">Solicitar Orçamento</option>
-                    <option value="Projeto">Novo Projeto</option>
-                    <option value="Consultoria">Consultoria</option>
-                    <option value="Outro">Outro</option>
+                    <option value="">{t("contact.form.subjectPlaceholder")}</option>
+                    <option value="Orçamento">{t("contact.form.subjectOptions.quote")}</option>
+                    <option value="Projeto">{t("contact.form.subjectOptions.project")}</option>
+                    <option value="Consultoria">{t("contact.form.subjectOptions.consulting")}</option>
+                    <option value="Outro">{t("contact.form.subjectOptions.other")}</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Mensagem *
+                  {t("contact.form.message")} {t("contact.form.required")}
                 </label>
                 <textarea
                   name="message"
@@ -209,14 +210,14 @@ const Contact = () => {
                   onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors resize-none text-foreground placeholder:text-muted-foreground"
-                  placeholder="Descreva seu projeto ou necessidade..."
+                  placeholder={t("contact.form.messagePlaceholder")}
                   required
                 />
               </div>
 
               <Button type="submit" variant="hero" size="lg" className="w-full">
                 <Send className="mr-2" size={18} />
-                Enviar Mensagem
+                {t("contact.form.send")}
               </Button>
             </form>
           </div>
