@@ -1,4 +1,3 @@
-// Fade in animations - initial states
 export const fadeInUp = {
   opacity: 0,
   y: 50,
@@ -19,7 +18,6 @@ export const fadeInRight = {
   x: 50,
 };
 
-// Scale animations
 export const scaleIn = {
   opacity: 0,
   scale: 0.8,
@@ -31,7 +29,6 @@ export const scaleInUp = {
   y: 50,
 };
 
-// Visible states - animate states
 export const visible = {
   opacity: 1,
   y: 0,
@@ -39,7 +36,6 @@ export const visible = {
   scale: 1,
 };
 
-// Transition configs
 export const defaultTransition = {
   duration: 0.6,
   ease: [0.22, 1, 0.36, 1] as const,
@@ -50,7 +46,6 @@ export const fastTransition = {
   ease: [0.22, 1, 0.36, 1] as const,
 };
 
-// Hover animations
 export const hoverScale = {
   scale: 1.05,
   transition: {
@@ -68,14 +63,12 @@ export const hoverLift = {
   },
 };
 
-// Viewport options for scroll animations
 export const viewportOptions = {
-  once: false, // Permite animação ao scrollar para cima e para baixo
-  amount: 0.3, // Quantidade do elemento que precisa estar visível (30%)
-  margin: "0px 0px -50px 0px", // Margem para trigger mais cedo
+  once: false,
+  amount: 0.3,
+  margin: "0px 0px -50px 0px",
 } as const;
 
-// Stagger container variants
 export const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -87,7 +80,6 @@ export const staggerContainer = {
   },
 };
 
-// Stagger item variants
 export const staggerItem = {
   hidden: {
     opacity: 0,

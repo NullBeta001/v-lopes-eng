@@ -121,7 +121,6 @@ const Services = () => {
               whileHover={{ y: -6, scale: 1.01 }}
               transition={defaultTransition}
             >
-              {/* Icon and Title in same row */}
               <div className="flex items-center gap-3 mb-4">
                 <motion.div
                   className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0"

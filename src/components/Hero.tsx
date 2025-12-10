@@ -9,7 +9,6 @@ const Hero = () => {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Smooth mouse tracking with Motion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -32,11 +31,9 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  // Garantir que o vídeo toque
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Ignorar erros de autoplay
       });
     }
   }, []);

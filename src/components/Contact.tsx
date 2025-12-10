@@ -20,7 +20,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate form
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: t("contact.toast.error"),
@@ -30,7 +29,6 @@ const Contact = () => {
       return;
     }
 
-    // Create WhatsApp message
     const whatsappMessage = encodeURIComponent(
       `*${t("contact.toast.whatsappMessage")}*\n\n` +
       `*${t("contact.form.name")}:* ${formData.name}\n` +
@@ -40,7 +38,6 @@ const Contact = () => {
       `*${t("contact.form.message")}:*\n${formData.message}`
     );
 
-    // Open WhatsApp (replace with your actual WhatsApp number)
     window.open(`https://wa.me/5500000000000?text=${whatsappMessage}`, "_blank");
 
     toast({
@@ -48,7 +45,6 @@ const Contact = () => {
       description: t("contact.toast.successDescription"),
     });
 
-    // Reset form
     setFormData({
       name: "",
       email: "",

@@ -18,13 +18,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Detect active section using Intersection Observer
   useEffect(() => {
     const sections = document.querySelectorAll("section[id], footer[id]");
 
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px", // Trigger when section is in the middle-upper part of viewport
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0,
     };
 
@@ -62,14 +61,12 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      // Temporarily disable scroll snap for programmatic navigation
       const html = document.documentElement;
       const originalSnapType = html.style.scrollSnapType;
       html.style.scrollSnapType = "none";
 
       element.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      // Re-enable scroll snap after scroll completes
       setTimeout(() => {
         html.style.scrollSnapType = originalSnapType || "";
       }, 1000);
@@ -95,10 +92,10 @@ const Navigation = () => {
             className="flex items-center gap-3 group"
           >
             <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(38_70%_50%/0.4)] transition-all duration-300">
-              <span className="font-heading font-bold text-xl text-primary-foreground">VL</span>
+              <span className="font-heading font-bold text-xl text-primary-foreground">VE</span>
             </div>
             <div className="hidden sm:block">
-              <span className="font-heading font-bold text-xl text-foreground">V LOPES</span>
+              <span className="font-heading font-bold text-xl text-foreground">V-ENG</span>
               <p className="text-xs text-muted-foreground uppercase tracking-widest">Engenharia</p>
             </div>
           </a>

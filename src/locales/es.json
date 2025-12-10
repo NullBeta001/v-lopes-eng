@@ -27,7 +27,7 @@
     "badge": "Nosotros",
     "title": "Ingeniería con",
     "titleHighlight": "Excelencia",
-    "description1": "V Lopes Ingeniería se especializa en proyectos industriales y modelado 3D. Con años de experiencia en el mercado, ofrecemos soluciones técnicas de alta calidad para industrias de diversos sectores.",
+    "description1": "V-eng se especializa en proyectos industriales y modelado 3D. Con años de experiencia en el mercado, ofrecemos soluciones técnicas de alta calidad para industrias de diversos sectores.",
     "description2": "Nuestro equipo de ingenieros y diseñadores está preparado para transformar sus ideas en proyectos viables, utilizando las herramientas más avanzadas del mercado como SolidWorks, AutoCAD y SketchUp.",
     "values": {
       "precision": {
@@ -119,6 +119,7 @@
       "structural": "Estructural"
     },
     "viewAll": "Ver Todos los Proyectos",
+    "viewDetails": "Ver Detalles",
     "items": {
       "conveyorSystem": {
         "title": "Sistema de Cintas Transportadoras",
@@ -127,6 +128,10 @@
       "equipmentModeling": {
         "title": "Modelado de Equipo Industrial",
         "description": "Modelado 3D detallado de equipo para industria alimentaria."
+      },
+      "industrialPlant": {
+        "title": "Planta Industrial - Procesamiento Químico",
+        "description": "Modelado 3D isométrico completo de planta industrial con tanques, plataformas elevadas y estructuras de acceso."
       },
       "metalStructure": {
         "title": "Estructura Metálica Galpón",
@@ -183,7 +188,7 @@
       "errorDescription": "Por favor, complete todos los campos obligatorios.",
       "success": "¡Mensaje enviado!",
       "successDescription": "Será redirigido a WhatsApp.",
-      "whatsappMessage": "Nuevo Contacto - V Lopes Ingeniería",
+      "whatsappMessage": "Nuevo Contacto - V-eng",
       "notProvided": "No proporcionado"
     }
   },

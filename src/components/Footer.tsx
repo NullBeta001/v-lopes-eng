@@ -66,14 +66,13 @@ const Footer = () => {
             viewport={viewportOptions}
             exit="hidden"
           >
-            {/* Logo e Descrição */}
             <motion.div className="md:col-span-1" variants={staggerItem}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="font-heading font-bold text-xl text-primary-foreground">VL</span>
+                  <span className="font-heading font-bold text-xl text-primary-foreground">VE</span>
                 </div>
                 <div>
-                  <span className="font-heading font-bold text-xl text-foreground">V LOPES</span>
+                  <span className="font-heading font-bold text-xl text-foreground">V-ENG</span>
                   <p className="text-xs text-muted-foreground uppercase tracking-widest">Engenharia</p>
                 </div>
               </div>
@@ -108,7 +107,6 @@ const Footer = () => {
               </motion.div>
             </motion.div>
 
-            {/* Links Rápidos */}
             <motion.div
               initial={fadeInUp}
               whileInView={visible}
@@ -144,7 +142,6 @@ const Footer = () => {
               </motion.ul>
             </motion.div>
 
-            {/* Contato */}
             <motion.div
               initial={fadeInUp}
               whileInView={visible}
@@ -172,7 +169,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Copyright e Links Legais */}
         <motion.div
           className="pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4"
           variants={staggerContainer}
@@ -182,7 +178,7 @@ const Footer = () => {
           exit="hidden"
         >
           <p className="text-sm text-muted-foreground">
-            © {currentYear} V Lopes Engenharia. {t("footer.rights")}
+            © {currentYear} V-eng. {t("footer.rights")}
           </p>
           <motion.div
             className="flex gap-6"

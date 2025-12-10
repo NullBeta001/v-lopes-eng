@@ -27,7 +27,7 @@
     "badge": "About Us",
     "title": "Engineering with",
     "titleHighlight": "Excellence",
-    "description1": "V Lopes Engineering specializes in industrial projects and 3D modeling. With years of market experience, we offer high-quality technical solutions for industries across various sectors.",
+    "description1": "V-eng specializes in industrial projects and 3D modeling. With years of market experience, we offer high-quality technical solutions for industries across various sectors.",
     "description2": "Our team of engineers and designers is ready to transform your ideas into viable projects, using the most advanced tools in the market such as SolidWorks, AutoCAD, and SketchUp.",
     "values": {
       "precision": {
@@ -159,6 +159,7 @@
       "structural": "Structural"
     },
     "viewAll": "View All Projects",
+    "viewDetails": "View Details",
     "items": {
       "conveyorSystem": {
         "title": "Conveyor Belt System",
@@ -167,6 +168,10 @@
       "equipmentModeling": {
         "title": "Industrial Equipment Modeling",
         "description": "Detailed 3D modeling of equipment for the food industry."
+      },
+      "industrialPlant": {
+        "title": "Industrial Plant - Chemical Processing",
+        "description": "Complete isometric 3D modeling of industrial plant with tanks, elevated platforms and access structures."
       },
       "metalStructure": {
         "title": "Metal Structure Warehouse",
@@ -223,7 +228,7 @@
       "errorDescription": "Please fill in all required fields.",
       "success": "Message sent!",
       "successDescription": "You will be redirected to WhatsApp.",
-      "whatsappMessage": "New Contact - V Lopes Engineering",
+      "whatsappMessage": "New Contact - V-eng",
       "notProvided": "Not provided"
     }
   },
