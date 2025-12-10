@@ -328,22 +328,26 @@ const Projects = () => {
 
                   {selectedProjectData.images.length > 1 && (
                     <>
-                      <motion.button
-                        onClick={handlePreviousImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
-                        whileHover={{ scale: 1.1, x: -4 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <ChevronLeft size={24} />
-                      </motion.button>
-                      <motion.button
-                        onClick={handleNextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
-                        whileHover={{ scale: 1.1, x: 4 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <ChevronRight size={24} />
-                      </motion.button>
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                        <motion.button
+                          onClick={handlePreviousImage}
+                          className="w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <ChevronLeft size={24} />
+                        </motion.button>
+                      </div>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                        <motion.button
+                          onClick={handleNextImage}
+                          className="w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <ChevronRight size={24} />
+                        </motion.button>
+                      </div>
                     </>
                   )}
 
