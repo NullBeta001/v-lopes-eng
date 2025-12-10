@@ -22,7 +22,8 @@ const Projects = () => {
     {
       id: 1,
       title: t("projects.items.conveyorSystem.title"),
-      categoryKey: "industrial",
+      categoryKey: "structural",
+      shortDescription: t("projects.items.conveyorSystem.shortDescription"),
       description: t("projects.items.conveyorSystem.description"),
       image: "/projetos/prj_1.png",
       images: ["/projetos/prj_1.png", "/projetos/prj_1.1.png"],
@@ -30,7 +31,8 @@ const Projects = () => {
     {
       id: 2,
       title: t("projects.items.equipmentModeling.title"),
-      categoryKey: "3dModeling",
+      categoryKey: "structural",
+      shortDescription: t("projects.items.equipmentModeling.shortDescription"),
       description: t("projects.items.equipmentModeling.description"),
       image: "/projetos/prj_2.png",
       images: ["/projetos/prj_2.png", "/projetos/prj_2.1.jpeg"],
@@ -39,6 +41,7 @@ const Projects = () => {
       id: 3,
       title: t("projects.items.industrialPlant.title"),
       categoryKey: "3dModeling",
+      shortDescription: t("projects.items.industrialPlant.shortDescription"),
       description: t("projects.items.industrialPlant.description"),
       image: "/projetos/prj_3.jpeg",
       images: ["/projetos/prj_3.jpeg"],
@@ -47,6 +50,7 @@ const Projects = () => {
       id: 4,
       title: t("projects.items.metalStructure.title"),
       categoryKey: "structural",
+      shortDescription: t("projects.items.metalStructure.shortDescription"),
       description: t("projects.items.metalStructure.description"),
       image: "/projetos/prj_4.jpg",
       images: ["/projetos/prj_4.jpg", "/projetos/prj_4.1.JPG"],
@@ -55,6 +59,7 @@ const Projects = () => {
       id: 5,
       title: t("projects.items.fillingMachine.title"),
       categoryKey: "mechanical",
+      shortDescription: t("projects.items.fillingMachine.shortDescription"),
       description: t("projects.items.fillingMachine.description"),
       image: "/projetos/prj_5.jpeg",
       images: ["/projetos/prj_5.jpeg", "/projetos/prj_5.1.JPG"],
@@ -63,6 +68,7 @@ const Projects = () => {
       id: 6,
       title: t("projects.items.pharmaceuticalLayout.title"),
       categoryKey: "industrial",
+      shortDescription: t("projects.items.pharmaceuticalLayout.shortDescription"),
       description: t("projects.items.pharmaceuticalLayout.description"),
       image: "/projetos/prj_6.jpg",
       images: ["/projetos/prj_6.jpg", "/projetos/prj_6.1.png"],
@@ -253,11 +259,11 @@ const Projects = () => {
                   <span className="inline-block px-2 py-0.5 bg-primary/10 text-primary text-xs font-medium uppercase tracking-wider rounded-full mb-2">
                     {t(`projects.filters.${project.categoryKey}`)}
                   </span>
-                  <h3 className="font-heading font-semibold text-base text-foreground mb-1">
+                  <h3 className="font-heading font-semibold text-sm text-foreground mb-1.5 line-clamp-2">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">
-                    {project.description}
+                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
+                    {project.shortDescription}
                   </p>
                 </div>
               </motion.div>
@@ -295,10 +301,10 @@ const Projects = () => {
               >
                 <div className="flex items-center justify-between p-4 border-b border-border">
                   <div>
-                    <h3 className="font-heading font-bold text-xl text-foreground">
+                    <h3 className="font-heading font-bold text-lg text-foreground">
                       {selectedProjectData.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                       {selectedProjectData.description}
                     </p>
                   </div>
