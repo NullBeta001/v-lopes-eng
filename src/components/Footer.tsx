@@ -25,7 +25,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Mail, href: "mailto:contato@vlopes.com.br", label: "Email" },
+    { icon: Mail, href: "mailto:contato@v-eng.site", label: "Email" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -154,15 +154,15 @@ const Footer = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.phone")}</span>
-                  (00) 00000-0000
+                  (16) 99124-5885
                 </li>
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.email")}</span>
-                  contato@vlopes.com.br
+                  contato@v-eng.site
                 </li>
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.location")}</span>
-                  São Paulo, SP - Brasil
+                  Sertãozinho, São Paulo
                 </li>
               </ul>
             </motion.div>

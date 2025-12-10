@@ -38,7 +38,7 @@ const Contact = () => {
       `*${t("contact.form.message")}:*\n${formData.message}`
     );
 
-    window.open(`https://wa.me/5500000000000?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank");
 
     toast({
       title: t("contact.toast.success"),
@@ -58,24 +58,23 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const whatsappNumber = "5516991245885"; // 55 16 99124-5885
+
   const contactInfo = [
     {
       icon: Phone,
       title: t("contact.info.phone"),
-      value: "(00) 00000-0000",
-      href: "tel:+5500000000000",
+      value: "(16) 99124-5885",
     },
     {
       icon: Mail,
       title: t("contact.info.email"),
-      value: "contato@vlopes.com.br",
-      href: "mailto:contato@vlopes.com.br",
+      value: "contato@v-eng.site",
     },
     {
       icon: MapPin,
       title: t("contact.info.location"),
-      value: "São Paulo, SP - Brasil",
-      href: "#",
+      value: "Sertãozinho, São Paulo",
     },
   ];
 
@@ -128,30 +127,19 @@ const Contact = () => {
               viewport={viewportOptions}
             >
               {contactInfo.map((info, index) => (
-                <motion.a
+                <motion.div
                   key={index}
-                  href={info.href}
-                  className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border hover:border-primary/50 group"
+                  className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border"
                   variants={staggerItem}
-                  whileHover={{ y: -12, scale: 1.02 }}
-                  transition={defaultTransition}
                 >
-                  <motion.div
-                    className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"
-                    whileHover={{
-                      backgroundColor: "hsl(38 70% 50% / 0.2)",
-                      scale: 1.1,
-                      rotate: 5,
-                    }}
-                    transition={defaultTransition}
-                  >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <info.icon className="w-5 h-5 text-primary" />
-                  </motion.div>
+                  </div>
                   <div>
                     <p className="text-sm text-muted-foreground">{info.title}</p>
                     <p className="font-medium text-foreground">{info.value}</p>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </motion.div>
 
@@ -163,7 +151,7 @@ const Contact = () => {
                 variant="hero"
                 size="lg"
                 className="w-full sm:w-auto"
-                onClick={() => window.open("https://wa.me/5500000000000", "_blank")}
+                onClick={() => window.open(`https://wa.me/${whatsappNumber}`, "_blank")}
               >
                 <MessageCircle className="mr-2" size={20} />
                 {t("contact.whatsapp")}
