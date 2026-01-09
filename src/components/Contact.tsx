@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "motion/react";
@@ -77,8 +77,8 @@ const Contact = () => {
             name: formData.name,
             from_name: formData.name,
             from_email: formData.email,
-            phone: formData.phone || "Não informado",
-            subject: formData.subject || "Sem assunto",
+            phone: formData.phone || t("contact.toast.notProvided"),
+            subject: formData.subject || t("contact.toast.noSubject"),
             message: formData.message,
             time: new Date().toLocaleString("pt-BR", {
               dateStyle: "short",
@@ -93,7 +93,7 @@ const Contact = () => {
           );
 
           const timeoutPromise = new Promise<never>((_, reject) => {
-            setTimeout(() => reject(new Error("Timeout: A requisição demorou muito para responder")), 8000);
+            setTimeout(() => reject(new Error(t("contact.toast.timeoutError"))), 8000);
           });
 
           await Promise.race([sendPromise, timeoutPromise]);
@@ -108,8 +108,8 @@ const Contact = () => {
 
           if (errorInfo?.status === 400) {
             toast({
-              title: "Erro na configuração",
-              description: "Erro ao enviar email: configuração inválida. Verifique o template no EmailJS.",
+              title: t("contact.toast.configError"),
+              description: t("contact.toast.configErrorDescription"),
               variant: "destructive",
               duration: 5000,
             });
@@ -122,15 +122,15 @@ const Contact = () => {
             String(error).includes("Failed to fetch")
           ) {
             toast({
-              title: "Erro de conexão com EmailJS",
-              description: "Não foi possível conectar ao servidor. Tente desativar extensões do navegador ou usar modo anônimo.",
+              title: t("contact.toast.connectionError"),
+              description: t("contact.toast.connectionErrorDescription"),
               variant: "destructive",
               duration: 7000,
             });
           } else {
             toast({
-              title: "Erro ao enviar email",
-              description: errorInfo?.text || errorInfo?.message || `Erro ${errorInfo?.status || "desconhecido"}.`,
+              title: t("contact.toast.sendError"),
+              description: errorInfo?.text || errorInfo?.message || `${t("contact.toast.sendError")}: ${errorInfo?.status || t("contact.toast.unknownError")}.`,
               variant: "destructive",
               duration: 5000,
             });
@@ -147,8 +147,8 @@ const Contact = () => {
         });
       } else {
         toast({
-          title: "Email não enviado",
-          description: "Não foi possível enviar o email. Verifique sua conexão e tente novamente.",
+          title: t("contact.toast.emailNotSent"),
+          description: t("contact.toast.emailNotSentDescription"),
           variant: "destructive",
           duration: 5000,
         });
@@ -163,8 +163,8 @@ const Contact = () => {
       });
     } catch (error) {
       toast({
-        title: "Erro inesperado",
-        description: "Ocorreu um erro ao processar o formulário. A página pode ser atualizada normalmente.",
+        title: t("contact.toast.unexpectedError"),
+        description: t("contact.toast.unexpectedErrorDescription"),
         variant: "destructive",
         duration: 5000,
       });
@@ -381,8 +381,17 @@ const Contact = () => {
               </div>
 
               <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
-                <Send className="mr-2" size={18} />
-                {isSubmitting ? t("contact.form.sending") || "Enviando..." : t("contact.form.send")}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 animate-spin" size={18} />
+                    {t("contact.form.sending") || "Enviando..."}
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2" size={18} />
+                    {t("contact.form.send")}
+                  </>
+                )}
               </Button>
             </form>
           </motion.div>

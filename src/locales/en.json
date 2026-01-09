@@ -234,9 +234,22 @@
       "error": "Error",
       "errorDescription": "Please fill in all required fields.",
       "success": "Message sent!",
-      "successDescription": "You will be redirected to WhatsApp.",
+      "successDescription": "Your message has been sent successfully! We will contact you soon.",
       "whatsappMessage": "New Contact - V-eng",
-      "notProvided": "Not provided"
+      "notProvided": "Not provided",
+      "noSubject": "No subject",
+      "configError": "Configuration error",
+      "configErrorDescription": "Error sending email: invalid configuration. Check the template in EmailJS.",
+      "connectionError": "EmailJS connection error",
+      "connectionErrorDescription": "Could not connect to server. Try disabling browser extensions or use incognito mode.",
+      "sendError": "Error sending email",
+      "sendErrorDescription": "An error occurred while sending the email. Please try again.",
+      "unknownError": "unknown",
+      "emailNotSent": "Email not sent",
+      "emailNotSentDescription": "Could not send email. Check your connection and try again.",
+      "unexpectedError": "Unexpected error",
+      "unexpectedErrorDescription": "An error occurred while processing the form. The page can be refreshed normally.",
+      "timeoutError": "Timeout: The request took too long to respond"
     }
   },
   "footer": {

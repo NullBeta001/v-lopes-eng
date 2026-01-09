@@ -234,9 +234,22 @@
       "error": "Erro",
       "errorDescription": "Por favor, preencha todos os campos obrigatórios.",
       "success": "Mensagem enviada!",
-      "successDescription": "Você será redirecionado para o WhatsApp.",
+      "successDescription": "Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.",
       "whatsappMessage": "Novo Contato - V-eng",
-      "notProvided": "Não informado"
+      "notProvided": "Não informado",
+      "noSubject": "Sem assunto",
+      "configError": "Erro na configuração",
+      "configErrorDescription": "Erro ao enviar email: configuração inválida. Verifique o template no EmailJS.",
+      "connectionError": "Erro de conexão com EmailJS",
+      "connectionErrorDescription": "Não foi possível conectar ao servidor. Tente desativar extensões do navegador ou usar modo anônimo.",
+      "sendError": "Erro ao enviar email",
+      "sendErrorDescription": "Ocorreu um erro ao enviar o email. Tente novamente.",
+      "unknownError": "desconhecido",
+      "emailNotSent": "Email não enviado",
+      "emailNotSentDescription": "Não foi possível enviar o email. Verifique sua conexão e tente novamente.",
+      "unexpectedError": "Erro inesperado",
+      "unexpectedErrorDescription": "Ocorreu um erro ao processar o formulário. A página pode ser atualizada normalmente.",
+      "timeoutError": "Timeout: A requisição demorou muito para responder"
     }
   },
   "footer": {
