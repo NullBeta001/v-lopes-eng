@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <motion.footer
       id="rodape"
-      className="h-screen bg-card border-t border-border relative overflow-hidden flex items-center"
+      className="min-h-screen bg-card border-t border-border relative overflow-hidden flex items-center py-12 md:py-16"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -56,10 +56,10 @@ const Footer = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 py-8 relative z-10 w-full h-full flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 w-full flex flex-col">
         <div className="flex-1 flex items-center">
           <motion.div
-            className="grid md:grid-cols-3 gap-8 w-full"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"

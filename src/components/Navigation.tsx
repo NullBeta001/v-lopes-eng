@@ -70,7 +70,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
         ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-        : "bg-transparent"
+        : "bg-background/80 backdrop-blur-sm"
         }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -136,7 +136,7 @@ const Navigation = () => {
           className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
             }`}
         >
-          <div className="flex flex-col gap-4 pt-4 border-t border-border">
+          <div className="flex flex-col gap-4 pt-4 border-t border-border bg-background/95 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (

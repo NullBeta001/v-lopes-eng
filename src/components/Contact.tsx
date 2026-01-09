@@ -210,7 +210,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contato"
-      className="h-screen bg-background relative overflow-hidden flex items-center"
+      className="min-h-screen bg-background relative overflow-hidden flex items-center py-12 md:py-20"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -228,8 +228,8 @@ const Contact = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 py-8 relative z-10 w-full h-full flex items-center">
-        <div className="grid lg:grid-cols-2 gap-8 w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 w-full">
           <motion.div
             initial={fadeInLeft}
             whileInView={visible}
@@ -240,11 +240,11 @@ const Contact = () => {
             <span className="inline-block text-primary font-heading text-xs uppercase tracking-widest mb-2">
               {t("contact.badge")}
             </span>
-            <h2 className="font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-foreground mb-3">
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-foreground mb-3">
               {t("contact.title")}
               <span className="text-gradient-gold"> {t("contact.titleHighlight")}</span>
             </h2>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+            <p className="text-muted-foreground text-sm sm:text-base mb-4 md:mb-6 leading-relaxed">
               {t("contact.subtitle")}
             </p>
 
@@ -289,19 +289,19 @@ const Contact = () => {
           </motion.div>
 
           <motion.div
-            className="bg-card p-6 rounded-xl border border-border"
+            className="bg-card p-4 sm:p-6 rounded-xl border border-border"
             initial={fadeInRight}
             whileInView={visible}
             viewport={viewportOptions}
             transition={defaultTransition}
             exit={fadeInRight}
           >
-            <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
+            <h3 className="font-heading font-semibold text-base sm:text-lg text-foreground mb-4">
               {t("contact.form.title")}
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     {t("contact.form.name")} {t("contact.form.required")}
@@ -332,7 +332,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     {t("contact.form.phone")}
