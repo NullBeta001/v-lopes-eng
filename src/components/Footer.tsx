@@ -25,7 +25,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Mail, href: "mailto:contato@vlopes.com.br", label: "Email" },
+    { icon: Mail, href: "mailto:contato@v-eng.site", label: "Email" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <motion.footer
       id="rodape"
-      className="h-screen bg-card border-t border-border relative overflow-hidden flex items-center"
+      className="min-h-screen bg-card border-t border-border relative overflow-hidden flex items-center py-12 md:py-16"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
@@ -56,24 +56,23 @@ const Footer = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 py-8 relative z-10 w-full h-full flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 w-full flex flex-col">
         <div className="flex-1 flex items-center">
           <motion.div
-            className="grid md:grid-cols-3 gap-8 w-full"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             exit="hidden"
           >
-            {/* Logo e Descrição */}
             <motion.div className="md:col-span-1" variants={staggerItem}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="font-heading font-bold text-xl text-primary-foreground">VL</span>
+                  <span className="font-heading font-bold text-xl text-primary-foreground">VE</span>
                 </div>
                 <div>
-                  <span className="font-heading font-bold text-xl text-foreground">V LOPES</span>
+                  <span className="font-heading font-bold text-xl text-foreground">V-ENG</span>
                   <p className="text-xs text-muted-foreground uppercase tracking-widest">Engenharia</p>
                 </div>
               </div>
@@ -108,7 +107,6 @@ const Footer = () => {
               </motion.div>
             </motion.div>
 
-            {/* Links Rápidos */}
             <motion.div
               initial={fadeInUp}
               whileInView={visible}
@@ -144,7 +142,6 @@ const Footer = () => {
               </motion.ul>
             </motion.div>
 
-            {/* Contato */}
             <motion.div
               initial={fadeInUp}
               whileInView={visible}
@@ -157,22 +154,21 @@ const Footer = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.phone")}</span>
-                  (00) 00000-0000
+                  (16) 99124-5885
                 </li>
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.email")}</span>
-                  contato@vlopes.com.br
+                  contato@v-eng.site
                 </li>
                 <li>
                   <span className="block text-foreground font-medium">{t("contact.info.location")}</span>
-                  São Paulo, SP - Brasil
+                  Sertãozinho, São Paulo
                 </li>
               </ul>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Copyright e Links Legais */}
         <motion.div
           className="pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4"
           variants={staggerContainer}
@@ -182,7 +178,7 @@ const Footer = () => {
           exit="hidden"
         >
           <p className="text-sm text-muted-foreground">
-            © {currentYear} V Lopes Engenharia. {t("footer.rights")}
+            © {currentYear} V-eng. {t("footer.rights")}
           </p>
           <motion.div
             className="flex gap-6"

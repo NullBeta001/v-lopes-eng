@@ -27,7 +27,7 @@
     "badge": "Sobre Nós",
     "title": "Engenharia com",
     "titleHighlight": "Excelência",
-    "description1": "A V Lopes Engenharia é especializada em projetos industriais e modelagem 3D. Com anos de experiência no mercado, oferecemos soluções técnicas de alta qualidade para indústrias de diversos segmentos.",
+    "description1": "A V-eng é especializada em projetos industriais e modelagem 3D. Com anos de experiência no mercado, oferecemos soluções técnicas de alta qualidade para indústrias de diversos segmentos.",
     "description2": "Nossa equipe de engenheiros e projetistas está preparada para transformar suas ideias em projetos viáveis, utilizando as ferramentas mais avançadas do mercado como SolidWorks, AutoCAD e SketchUp.",
     "values": {
       "precision": {
@@ -57,52 +57,92 @@
       "3dModeling": {
         "title": "Modelagem 3D",
         "description": "Criação de modelos tridimensionais precisos para visualização e fabricação de peças e equipamentos industriais.",
-        "features": ["Renderização Realista", "Animações 3D", "Prototipagem Virtual"]
+        "features": [
+          "Renderização Realista",
+          "Animações 3D",
+          "Prototipagem Virtual"
+        ]
       },
       "technicalProjects": {
         "title": "Projetos Técnicos",
         "description": "Desenvolvimento de projetos técnicos completos com detalhamento e especificações para execução.",
-        "features": ["Desenhos Técnicos", "Lista de Materiais", "Memorial Descritivo"]
+        "features": [
+          "Desenhos Técnicos",
+          "Lista de Materiais",
+          "Memorial Descritivo"
+        ]
       },
       "industrialProjects": {
         "title": "Projetos Industriais",
         "description": "Soluções completas para instalações industriais, layout de fábricas e otimização de processos.",
-        "features": ["Layout Industrial", "Fluxo de Processos", "Ergonomia"]
+        "features": [
+          "Layout Industrial",
+          "Fluxo de Processos",
+          "Ergonomia"
+        ]
       },
       "mechanicalEngineering": {
         "title": "Engenharia Mecânica",
         "description": "Projetos de máquinas, equipamentos e sistemas mecânicos para diversos setores da indústria.",
-        "features": ["Dimensionamento", "Análise Estrutural", "Seleção de Materiais"]
+        "features": [
+          "Dimensionamento",
+          "Análise Estrutural",
+          "Seleção de Materiais"
+        ]
       },
       "nr35Inspection": {
         "title": "Inspeção NR-35",
         "description": "Inspeção técnica completa para trabalhos em altura conforme norma regulamentadora NR-35.",
-        "features": ["Análise de Riscos", "Relatório Técnico", "Conformidade Legal"]
+        "features": [
+          "Análise de Riscos",
+          "Relatório Técnico",
+          "Conformidade Legal"
+        ]
       },
       "nr12Inspection": {
         "title": "Inspeção NR-12",
         "description": "Inspeção de segurança em máquinas e equipamentos conforme norma regulamentadora NR-12.",
-        "features": ["Avaliação de Riscos", "Inventário de Máquinas", "Plano de Ação"]
+        "features": [
+          "Avaliação de Riscos",
+          "Inventário de Máquinas",
+          "Plano de Ação"
+        ]
       },
       "nr35Compliance": {
         "title": "Adequação NR-35",
         "description": "Adequação de estruturas e sistemas para conformidade com a norma de trabalho em altura.",
-        "features": ["Projeto de Adequação", "Acompanhamento", "Validação Final"]
+        "features": [
+          "Projeto de Adequação",
+          "Acompanhamento",
+          "Validação Final"
+        ]
       },
       "technicalDocumentation": {
         "title": "Documentação Técnica",
         "description": "Elaboração de toda documentação técnica necessária para regularização e conformidade.",
-        "features": ["Laudos Técnicos", "ART", "Certificados"]
+        "features": [
+          "Laudos Técnicos",
+          "ART",
+          "Certificados"
+        ]
       },
       "detailing": {
         "title": "Detalhamento",
         "description": "Detalhamento completo de peças e conjuntos para fabricação e montagem industrial.",
-        "features": ["Cotas e Tolerâncias", "Acabamentos", "Instruções de Montagem"]
+        "features": [
+          "Cotas e Tolerâncias",
+          "Acabamentos",
+          "Instruções de Montagem"
+        ]
       },
       "consulting": {
         "title": "Consultoria",
         "description": "Assessoria técnica especializada para otimização de projetos e processos industriais.",
-        "features": ["Análise de Viabilidade", "Otimização", "Treinamentos"]
+        "features": [
+          "Análise de Viabilidade",
+          "Otimização",
+          "Treinamentos"
+        ]
       }
     }
   },
@@ -119,26 +159,37 @@
       "structural": "Estrutural"
     },
     "viewAll": "Ver Todos os Projetos",
+    "viewDetails": "Ver Detalhes",
     "items": {
       "conveyorSystem": {
-        "title": "Sistema de Esteiras Transportadoras",
-        "description": "Projeto completo de sistema de transporte para linha de produção automotiva."
+        "title": "Linha de Vida para Trabalho em Altura",
+        "shortDescription": "Sistema de ancoragem para serviços de altura em conformidade com NR-35.",
+        "description": "Projeto completo de sistema de linha de vida para ancoragem de colaboradores em serviços de altura. Desenvolvido em conformidade com a NR-35, garantindo segurança e proteção contra quedas em estruturas elevadas."
       },
       "equipmentModeling": {
-        "title": "Modelagem de Equipamento Industrial",
-        "description": "Modelagem 3D detalhada de equipamento para indústria alimentícia."
+        "title": "Escada com Proteção e Portão",
+        "shortDescription": "Escada com sistema de proteção e portão de segurança para controle de acesso.",
+        "description": "Projeto completo de escada com sistema de proteção e portão de segurança para controle de acesso. Desenvolvido para prevenir acesso não autorizado a áreas elevadas, garantindo segurança e conformidade com normas de segurança industrial."
+      },
+      "industrialPlant": {
+        "title": "Planta Industrial - Processamento Químico",
+        "shortDescription": "Modelagem 3D completa de planta industrial com estruturas de acesso e segurança.",
+        "description": "Modelagem 3D isométrica completa de planta industrial com tanques, plataformas elevadas e estruturas de acesso. Projeto detalhado incluindo toda a estrutura de escadas, plataformas com guarda-corpos e sistemas de segurança necessários para operação segura em altura."
       },
       "metalStructure": {
-        "title": "Estrutura Metálica Galpão",
-        "description": "Projeto estrutural de galpão industrial com 2.000m² de área coberta."
+        "title": "Escada Multinível com Guarda-Corpo",
+        "shortDescription": "Escada em estrutura metálica com guarda-corpo em três níveis e proteção perimetral.",
+        "description": "Projeto completo de escada em estrutura metálica com guarda-corpo em três níveis e sistema de proteção perimetral (guarda-corpo de fora a fora) na parte superior do galpão. Desenvolvido para garantir segurança e acesso seguro em diferentes alturas da estrutura."
       },
       "fillingMachine": {
-        "title": "Máquina de Envase Automatizada",
-        "description": "Desenvolvimento de máquina para envase automático de líquidos."
+        "title": "Ciclone Separador de Partículas",
+        "shortDescription": "Ciclone industrial para separação eficiente de partículas sólidas de correntes gasosas.",
+        "description": "Projeto completo de ciclone industrial separador de partículas (ciclone de pó). Equipamento desenvolvido para separação eficiente de partículas sólidas de correntes gasosas, essencial em sistemas de exaustão e controle de poluição industrial."
       },
       "pharmaceuticalLayout": {
-        "title": "Layout Industrial Farmacêutico",
-        "description": "Projeto de layout otimizado para indústria farmacêutica."
+        "title": "Estrutura de Proteção para Tanques",
+        "shortDescription": "Estrutura metálica de proteção e acesso para tanques industriais.",
+        "description": "Projeto completo de estrutura metálica de proteção e acesso para tanques industriais. Desenvolvido para envolver e proteger tanques de armazenamento, proporcionando segurança, manutenção facilitada e controle de acesso às áreas de operação."
       },
       "aerospacePrototype": {
         "title": "Protótipo de Peça Aeronáutica",
@@ -176,6 +227,7 @@
       "message": "Mensagem",
       "messagePlaceholder": "Descreva seu projeto ou necessidade...",
       "send": "Enviar Mensagem",
+      "sending": "Enviando...",
       "required": "*"
     },
     "toast": {
@@ -183,7 +235,7 @@
       "errorDescription": "Por favor, preencha todos os campos obrigatórios.",
       "success": "Mensagem enviada!",
       "successDescription": "Você será redirecionado para o WhatsApp.",
-      "whatsappMessage": "Novo Contato - V Lopes Engenharia",
+      "whatsappMessage": "Novo Contato - V-eng",
       "notProvided": "Não informado"
     }
   },
@@ -207,5 +259,3 @@
     "rights": "Todos os direitos reservados."
   }
 }
-
-

@@ -1,4 +1,4 @@
-import { ArrowDown, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
@@ -9,7 +9,6 @@ const Hero = () => {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Smooth mouse tracking with Motion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -32,11 +31,9 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  // Garantir que o vídeo toque
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Ignorar erros de autoplay
       });
     }
   }, []);
@@ -122,7 +119,7 @@ const Hero = () => {
         })}
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           className="max-w-4xl mx-auto"
           initial="hidden"
@@ -139,7 +136,7 @@ const Hero = () => {
           }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 mb-6 sm:mb-8"
             initial={fadeInUp}
             animate={visible}
             whileHover={{ scale: 1.05, y: -5 }}
@@ -157,13 +154,13 @@ const Hero = () => {
                 ease: "easeInOut",
               }}
             />
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">
+            <span className="text-xs sm:text-sm text-primary font-medium uppercase tracking-wider">
               {t("hero.badge")}
             </span>
           </motion.div>
 
           <motion.h1
-            className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground mb-6"
+            className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground mb-4 sm:mb-6 px-2"
             initial={fadeInUp}
             animate={visible}
             transition={defaultTransition}
@@ -175,7 +172,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4"
             initial={fadeInUp}
             animate={visible}
             transition={defaultTransition}
@@ -217,13 +214,13 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-border/50"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 md:pt-10 border-t border-border/50 px-4"
             variants={staggerContainer}
           >
             {[
               { value: "10+", label: t("hero.stats.years") },
-              { value: "150+", label: t("hero.stats.projects") },
-              { value: "50+", label: t("hero.stats.clients") },
+              { value: "120+", label: t("hero.stats.projects") },
+              { value: "30+", label: t("hero.stats.clients") },
               { value: "100%", label: t("hero.stats.commitment") },
             ].map((stat, index) => (
               <motion.div
@@ -234,7 +231,7 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="font-heading font-bold text-3xl md:text-4xl text-primary mb-2"
+                  className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-primary mb-1 sm:mb-2"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{
@@ -246,7 +243,7 @@ const Hero = () => {
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider">
+                <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>
@@ -254,36 +251,6 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6 }}
-      >
-        <motion.a
-          href="#sobre"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("#sobre");
-          }}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <span className="text-xs uppercase tracking-widest">{t("hero.scroll")}</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <ArrowDown size={20} />
-          </motion.div>
-        </motion.a>
-      </motion.div>
     </motion.section>
   );
 };

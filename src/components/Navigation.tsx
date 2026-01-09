@@ -18,13 +18,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Detect active section using Intersection Observer
   useEffect(() => {
     const sections = document.querySelectorAll("section[id], footer[id]");
 
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px", // Trigger when section is in the middle-upper part of viewport
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0,
     };
 
@@ -62,17 +61,7 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      // Temporarily disable scroll snap for programmatic navigation
-      const html = document.documentElement;
-      const originalSnapType = html.style.scrollSnapType;
-      html.style.scrollSnapType = "none";
-
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      // Re-enable scroll snap after scroll completes
-      setTimeout(() => {
-        html.style.scrollSnapType = originalSnapType || "";
-      }, 1000);
     }
     setIsMobileMenuOpen(false);
   };
@@ -81,7 +70,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
         ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-        : "bg-transparent"
+        : "bg-background/80 backdrop-blur-sm"
         }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -95,10 +84,10 @@ const Navigation = () => {
             className="flex items-center gap-3 group"
           >
             <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(38_70%_50%/0.4)] transition-all duration-300">
-              <span className="font-heading font-bold text-xl text-primary-foreground">VL</span>
+              <span className="font-heading font-bold text-xl text-primary-foreground">VE</span>
             </div>
             <div className="hidden sm:block">
-              <span className="font-heading font-bold text-xl text-foreground">V LOPES</span>
+              <span className="font-heading font-bold text-xl text-foreground">V-ENG</span>
               <p className="text-xs text-muted-foreground uppercase tracking-widest">Engenharia</p>
             </div>
           </a>
@@ -147,7 +136,7 @@ const Navigation = () => {
           className={`lg:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
             }`}
         >
-          <div className="flex flex-col gap-4 pt-4 border-t border-border">
+          <div className="flex flex-col gap-4 pt-4 border-t border-border bg-background/95 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (

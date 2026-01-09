@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Cog, Box, FileText, Ruler, Wrench, Shield, HardHat, ClipboardCheck, FileCheck } from "lucide-react";
 import { motion } from "motion/react";
 import { fadeInUp, visible, viewportOptions, hoverLift, defaultTransition, staggerContainer, staggerItem } from "@/lib/animations";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -105,8 +106,57 @@ const Services = () => {
           </p>
         </motion.div>
 
+        <div className="lg:hidden w-full">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {services.map((service, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-[85%] sm:basis-[45%]">
+                  <motion.div
+                    className="group px-3 sm:px-4 py-4 sm:py-5 bg-card rounded-lg border border-border hover:border-primary/50 h-full"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOptions}
+                    whileHover={{ y: -6, scale: 1.01 }}
+                    transition={defaultTransition}
+                  >
+                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <motion.div
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0"
+                        whileHover={{
+                          background: "linear-gradient(135deg, hsl(38 70% 50% / 0.3), hsl(38 70% 50% / 0.1))",
+                          scale: 1.1,
+                          rotate: 5,
+                        }}
+                        transition={defaultTransition}
+                      >
+                        <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                      </motion.div>
+                      <h3 className="font-heading font-semibold text-sm sm:text-base text-foreground">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
+                      {service.description}
+                    </p>
+
+                    <ul className="space-y-1.5">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span className="line-clamp-1">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-3"
+          className="hidden lg:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -116,15 +166,14 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group px-4 py-5 bg-card rounded-lg border border-border hover:border-primary/50"
+              className="group px-3 sm:px-4 py-4 sm:py-5 bg-card rounded-lg border border-border hover:border-primary/50"
               variants={staggerItem}
               whileHover={{ y: -6, scale: 1.01 }}
               transition={defaultTransition}
             >
-              {/* Icon and Title in same row */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <motion.div
-                  className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0"
                   whileHover={{
                     background: "linear-gradient(135deg, hsl(38 70% 50% / 0.3), hsl(38 70% 50% / 0.1))",
                     scale: 1.1,
@@ -132,9 +181,9 @@ const Services = () => {
                   }}
                   transition={defaultTransition}
                 >
-                  <service.icon className="w-6 h-6 text-primary" />
+                  <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </motion.div>
-                <h3 className="font-heading font-semibold text-base text-foreground">
+                <h3 className="font-heading font-semibold text-sm sm:text-base text-foreground">
                   {service.title}
                 </h3>
               </div>

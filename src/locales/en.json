@@ -27,7 +27,7 @@
     "badge": "About Us",
     "title": "Engineering with",
     "titleHighlight": "Excellence",
-    "description1": "V Lopes Engineering specializes in industrial projects and 3D modeling. With years of market experience, we offer high-quality technical solutions for industries across various sectors.",
+    "description1": "V-eng specializes in industrial projects and 3D modeling. With years of market experience, we offer high-quality technical solutions for industries across various sectors.",
     "description2": "Our team of engineers and designers is ready to transform your ideas into viable projects, using the most advanced tools in the market such as SolidWorks, AutoCAD, and SketchUp.",
     "values": {
       "precision": {
@@ -159,26 +159,37 @@
       "structural": "Structural"
     },
     "viewAll": "View All Projects",
+    "viewDetails": "View Details",
     "items": {
       "conveyorSystem": {
-        "title": "Conveyor Belt System",
-        "description": "Complete transport system project for automotive production line."
+        "title": "Lifeline for Work at Height",
+        "shortDescription": "Anchoring system for height services in compliance with NR-35.",
+        "description": "Complete lifeline system project for anchoring workers in height services. Developed in compliance with NR-35, ensuring safety and protection against falls on elevated structures."
       },
       "equipmentModeling": {
-        "title": "Industrial Equipment Modeling",
-        "description": "Detailed 3D modeling of equipment for the food industry."
+        "title": "Stairway with Protection and Gate",
+        "shortDescription": "Stairway with protection system and security gate for access control.",
+        "description": "Complete stairway project with protection system and security gate for access control. Developed to prevent unauthorized access to elevated areas, ensuring safety and compliance with industrial safety standards."
+      },
+      "industrialPlant": {
+        "title": "Industrial Plant - Chemical Processing",
+        "shortDescription": "Complete 3D modeling of industrial plant with access structures and safety systems.",
+        "description": "Complete isometric 3D modeling of industrial plant with tanks, elevated platforms and access structures. Detailed project including complete stairway structure, platforms with guardrails and safety systems necessary for safe operation at height."
       },
       "metalStructure": {
-        "title": "Metal Structure Warehouse",
-        "description": "Structural project for industrial warehouse with 2,000m² of covered area."
+        "title": "Multi-Level Stairway with Guardrail",
+        "shortDescription": "Metal structure stairway with guardrail on three levels and perimeter protection.",
+        "description": "Complete metal structure stairway project with guardrail on three levels and perimeter protection system (end-to-end guardrail) at the top of the warehouse. Developed to ensure safety and secure access at different heights of the structure."
       },
       "fillingMachine": {
-        "title": "Automated Filling Machine",
-        "description": "Development of machine for automatic liquid filling."
+        "title": "Cyclone Particle Separator",
+        "shortDescription": "Industrial cyclone for efficient separation of solid particles from gas streams.",
+        "description": "Complete industrial cyclone particle separator (dust cyclone) project. Equipment developed for efficient separation of solid particles from gas streams, essential in exhaust systems and industrial pollution control."
       },
       "pharmaceuticalLayout": {
-        "title": "Pharmaceutical Industrial Layout",
-        "description": "Optimized layout project for pharmaceutical industry."
+        "title": "Protection Structure for Tanks",
+        "shortDescription": "Metal protection and access structure for industrial tanks.",
+        "description": "Complete metal protection and access structure project for industrial tanks. Developed to surround and protect storage tanks, providing safety, facilitated maintenance and access control to operation areas."
       },
       "aerospacePrototype": {
         "title": "Aerospace Component Prototype",
@@ -216,6 +227,7 @@
       "message": "Message",
       "messagePlaceholder": "Describe your project or need...",
       "send": "Send Message",
+      "sending": "Sending...",
       "required": "*"
     },
     "toast": {
@@ -223,7 +235,7 @@
       "errorDescription": "Please fill in all required fields.",
       "success": "Message sent!",
       "successDescription": "You will be redirected to WhatsApp.",
-      "whatsappMessage": "New Contact - V Lopes Engineering",
+      "whatsappMessage": "New Contact - V-eng",
       "notProvided": "Not provided"
     }
   },
