@@ -187,6 +187,7 @@
       "message": "Mensaje",
       "messagePlaceholder": "Describa su proyecto o necesidad...",
       "send": "Enviar Mensaje",
+      "sending": "Enviando...",
       "required": "*"
     },
     "toast": {

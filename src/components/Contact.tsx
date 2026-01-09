@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "motion/react";
-import { fadeInLeft, fadeInRight, visible, viewportOptions, hoverLift, defaultTransition, staggerContainer, staggerItem } from "@/lib/animations";
+import { fadeInLeft, fadeInRight, visible, viewportOptions, defaultTransition, staggerContainer, staggerItem } from "@/lib/animations";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,7 +19,34 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_b2kxic4";
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_na1xvtu";
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "Q8bsoBMUVGv87tbKr";
+
+  const [emailjsReady, setEmailjsReady] = useState(false);
+
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+      try {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        setEmailjsReady(true);
+      } catch (error) {
+        setEmailjsReady(false);
+      }
+    }
+  }, [EMAILJS_PUBLIC_KEY]);
+
+  useEffect(() => {
+    if (isSubmitting) {
+      const safetyTimeout = setTimeout(() => {
+        setIsSubmitting(false);
+      }, 30000);
+
+      return () => clearTimeout(safetyTimeout);
+    }
+  }, [isSubmitting]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -29,36 +58,136 @@ const Contact = () => {
       return;
     }
 
-    const whatsappMessage = encodeURIComponent(
-      `*${t("contact.toast.whatsappMessage")}*\n\n` +
-      `*${t("contact.form.name")}:* ${formData.name}\n` +
-      `*${t("contact.info.email")}:* ${formData.email}\n` +
-      `*${t("contact.info.phone")}:* ${formData.phone || t("contact.toast.notProvided")}\n` +
-      `*${t("contact.form.subject")}:* ${formData.subject || t("contact.toast.notProvided")}\n\n` +
-      `*${t("contact.form.message")}:*\n${formData.message}`
-    );
+    setIsSubmitting(true);
 
-    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank");
+    try {
+      let emailSent = false;
 
-    toast({
-      title: t("contact.toast.success"),
-      description: t("contact.toast.successDescription"),
-    });
+      if (
+        emailjsReady &&
+        EMAILJS_SERVICE_ID &&
+        EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID" &&
+        EMAILJS_TEMPLATE_ID &&
+        EMAILJS_TEMPLATE_ID !== "YOUR_TEMPLATE_ID" &&
+        EMAILJS_PUBLIC_KEY &&
+        EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY"
+      ) {
+        try {
+          const templateParams = {
+            name: formData.name,
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone || "Não informado",
+            subject: formData.subject || "Sem assunto",
+            message: formData.message,
+            time: new Date().toLocaleString("pt-BR", {
+              dateStyle: "short",
+              timeStyle: "short",
+            }),
+          };
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+          const sendPromise = emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            templateParams
+          );
+
+          const timeoutPromise = new Promise<never>((_, reject) => {
+            setTimeout(() => reject(new Error("Timeout: A requisição demorou muito para responder")), 8000);
+          });
+
+          await Promise.race([sendPromise, timeoutPromise]);
+          emailSent = true;
+        } catch (error: unknown) {
+          const errorInfo = error as {
+            status?: number;
+            text?: string;
+            message?: string;
+            stack?: string;
+          };
+
+          if (errorInfo?.status === 400) {
+            toast({
+              title: "Erro na configuração",
+              description: "Erro ao enviar email: configuração inválida. Verifique o template no EmailJS.",
+              variant: "destructive",
+              duration: 5000,
+            });
+          } else if (
+            errorInfo?.message?.includes("Failed to fetch") ||
+            errorInfo?.message?.includes("ERR_INTERNET_DISCONNECTED") ||
+            errorInfo?.message?.includes("NetworkError") ||
+            errorInfo?.stack?.includes("chrome-extension://") ||
+            String(error).includes("ERR_INTERNET_DISCONNECTED") ||
+            String(error).includes("Failed to fetch")
+          ) {
+            toast({
+              title: "Erro de conexão com EmailJS",
+              description: "Não foi possível conectar ao servidor. Tente desativar extensões do navegador ou usar modo anônimo.",
+              variant: "destructive",
+              duration: 7000,
+            });
+          } else {
+            toast({
+              title: "Erro ao enviar email",
+              description: errorInfo?.text || errorInfo?.message || `Erro ${errorInfo?.status || "desconhecido"}.`,
+              variant: "destructive",
+              duration: 5000,
+            });
+          }
+
+          emailSent = false;
+        }
+      }
+
+      if (emailSent) {
+        toast({
+          title: t("contact.toast.success"),
+          description: t("contact.toast.successDescription"),
+        });
+      } else {
+        toast({
+          title: "Email não enviado",
+          description: "Não foi possível enviar o email. Verifique sua conexão e tente novamente.",
+          variant: "destructive",
+          duration: 5000,
+        });
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro inesperado",
+        description: "Ocorreu um erro ao processar o formulário. A página pode ser atualizada normalmente.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      try {
+        setIsSubmitting(false);
+      } catch (stateError) {
+        setTimeout(() => {
+          try {
+            setIsSubmitting(false);
+          } catch (retryError) {
+            // Estado pode estar corrompido
+          }
+        }, 100);
+      }
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const whatsappNumber = "5516991245885"; // 55 16 99124-5885
+  const whatsappNumber = "5516991245885";
 
   const contactInfo = [
     {
@@ -251,9 +380,9 @@ const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" variant="hero" size="lg" className="w-full">
+              <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                 <Send className="mr-2" size={18} />
-                {t("contact.form.send")}
+                {isSubmitting ? t("contact.form.sending") || "Enviando..." : t("contact.form.send")}
               </Button>
             </form>
           </motion.div>

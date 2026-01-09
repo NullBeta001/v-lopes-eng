@@ -200,6 +200,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
@@ -207,21 +208,6 @@ html {
   background: transparent;
 }
 
-html {
-  scrollbar-width: none;
-}
-
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
 body {
   overflow-x: hidden;
-}
-
-section,
-footer[id] {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }

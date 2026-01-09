@@ -227,6 +227,7 @@
       "message": "Mensagem",
       "messagePlaceholder": "Descreva seu projeto ou necessidade...",
       "send": "Enviar Mensagem",
+      "sending": "Enviando...",
       "required": "*"
     },
     "toast": {

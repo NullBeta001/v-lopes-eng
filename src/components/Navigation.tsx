@@ -61,15 +61,7 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const html = document.documentElement;
-      const originalSnapType = html.style.scrollSnapType;
-      html.style.scrollSnapType = "none";
-
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      setTimeout(() => {
-        html.style.scrollSnapType = originalSnapType || "";
-      }, 1000);
     }
     setIsMobileMenuOpen(false);
   };
